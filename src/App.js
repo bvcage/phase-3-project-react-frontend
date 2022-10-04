@@ -7,6 +7,7 @@ import {
   Link
 } from 'react-router-dom';
 import './App.css';
+import CheckOut from './CheckOut';
 
 function App() {
   return (
@@ -18,6 +19,11 @@ function App() {
           <Switch>
             <Route path="/">
                 <Home />
+            </Route>
+          </Switch>
+          <Switch>
+            <Route path='/checkout'>
+              <CheckOut />
             </Route>
           </Switch>
           </>
