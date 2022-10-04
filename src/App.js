@@ -1,7 +1,7 @@
 import Opener from './Opener';
 import Home from './Home';
 import { 
-  BrowserRouter as Router
+  BrowserRouter as Router,
   Switch, 
   Route,
   Link
