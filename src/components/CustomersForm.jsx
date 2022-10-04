@@ -19,7 +19,7 @@ function CustomersForm( props ) {
          [e.target.id]: e.target.value
       }
       setCustomer(newCustomer)
-      onEditCustomer(newCustomer)
+      if (!!onEditCustomer) { onEditCustomer(newCustomer) }
    }
 
    function handleReset () {
