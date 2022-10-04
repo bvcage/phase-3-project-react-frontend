@@ -1,12 +1,28 @@
+import Opener from './Opener';
+import Home from './Home';
+import { 
+  BrowserRouter as Router
+  Switch, 
+  Route,
+  Link
+} from 'react-router-dom';
 import './App.css';
-import { Navigate, Router, Route } from "react-router-dom"
-import CheckOut from './CheckOut';
 
 function App() {
   return (
-  <Route path="/checkout">
-    <CheckOut />
-  </Route>
+    <>
+      <Router>
+          <>
+          <Link to="/home"></Link>
+
+          <Switch>
+            <Route path="/">
+                <Home />
+            </Route>
+          </Switch>
+          </>
+      </Router>
+    </>
   );
 }
 
