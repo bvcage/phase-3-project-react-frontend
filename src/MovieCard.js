@@ -4,7 +4,7 @@ import { useState } from "react";
 
 
 function MovieCard ({ movie, onClickMovie }) {
-    const { id, image_url, title, plot, year } = movie
+    const { image_url } = movie
    
 
     const handleClick = () => {

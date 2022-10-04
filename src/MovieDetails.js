@@ -15,6 +15,7 @@ function MovieDetails ({ selectedMovie }) {
     </div>
     <div className='details-info'>
         <h2>{title}</h2>
+        <h5>{year}</h5>
         <p>{plot}</p>
         <Button variant='primary'>Check-Out</Button>
     </div>
