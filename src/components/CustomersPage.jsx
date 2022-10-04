@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Container, Col, Modal } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import CustomersForm from './CustomersForm'
 import CustomersList from './CustomersList'
 import CustomersModalDelete from './CustomersModalDelete'
@@ -11,7 +11,6 @@ function CustomersPage () {
    const [selectedCustomer, setSelectedCustomer] = useState()
    const [showDeleteModal, setShowDeleteModal] = useState(false)
    const [showEditModal, setShowEditModal] = useState(false)
-   const [modalText, setModalText] = useState("")
 
    useEffect(() => {
       fetch("http://localhost:9292/customers")
