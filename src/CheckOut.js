@@ -17,26 +17,28 @@ function CheckOut () {
     .then((data) => setMoviesArr(data.data))
    }, [])
 
+
+   const handleClickMovie = (movie) => {
+       setSelectedMovie(movie);
+   }
+
     const movies = moviesArr?.map((movie) => {
     return (
-        <MovieCard movie={movie} key={movie.id}/>
+        <MovieCard movie={movie} key={movie.id} onClickMovie={handleClickMovie}/>
         );
     });
 
-    const handleClickTest = (e) => {
-        setSelectedMovie(e.target);
-    }
 
     return (
     <div>
     <h1>BrickBuster</h1>
         <SearchBar />
         <br></br>
-        <div className='card-container' onClick={handleClickTest}>
+        <div className='card-container'>
             {movies}
         </div>
         <div className='details'>
-            <MovieDetails moviesArr={moviesArr} selectedMovie={selectedMovie} />
+            <MovieDetails selectedMovie={selectedMovie} />
         </div>
         
     </div>

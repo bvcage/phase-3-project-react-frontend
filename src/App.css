@@ -26,6 +26,14 @@
 .details {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
+  padding-top: 60px;
+  padding-left: 4px;
+}
+
+.details-info {
+  max-width: 350px;
+  padding-left: 10px;
+  margin-bottom: auto;
 }
