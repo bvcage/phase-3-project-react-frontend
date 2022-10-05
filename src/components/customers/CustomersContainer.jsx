@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import CustomersCard from './CustomersCard'
 
-function CustomersList (props) {
+function CustomersContainer (props) {
    const { customers, onClickEdit, onClickDelete } = props   // destructure props
 
    // display details for 1 customer at a time
@@ -39,4 +39,4 @@ function CustomersList (props) {
    )
 }
 
-export default CustomersList
+export default CustomersContainer
