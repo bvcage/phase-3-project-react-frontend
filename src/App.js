@@ -1,34 +1,29 @@
 import Opener from './Opener';
 import Home from './Home';
 import { 
-  BrowserRouter as Router,
-  Switch, 
+  BrowserRouter as Router, 
   Route,
-  Link
+  Routes,
+  useNavigate
 } from 'react-router-dom';
 import './App.css';
 import CheckOut from './CheckOut';
 
 function App() {
-  return (
-    <>
-      <Router>
-          <>
-          <Link to="/home"></Link>
 
-          <Switch>
-            <Route path="/">
-                <Home />
-            </Route>
-          </Switch>
-          <Switch>
-            <Route path='/checkout'>
-              <CheckOut />
-            </Route>
-          </Switch>
-          </>
-      </Router>
-    </>
+  const navigate = useNavigate();
+
+  const onClickCheckout = () => {
+    navigate('/checkout')
+  }
+
+  return (
+      <>
+        <Routes>
+            <Route path='/' element={<Home onClickCheckout={onClickCheckout} />}/>
+            <Route path='/checkout' element={<CheckOut/>}/>
+          </Routes>
+      </>
   );
 }
 
