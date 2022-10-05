@@ -34,7 +34,8 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Home onClickCheckout={onClickCheckout} />} />
+      <Route path="/" element={<Opener />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/checkout" element={<CheckOut />} />
       <Route path="/rentals" element={<RentalsPage />} />
       <Route path="/customers" element={<CustomersPage />} />
