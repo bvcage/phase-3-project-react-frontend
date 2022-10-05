@@ -28,7 +28,7 @@ function MovieDetails ({ selectedMovie }) {
                 "due_date": null,
                 "price": 15,
                 "movie_id": selectedMovie.id,
-                "customer_id": 2
+                "customer_id": 3
             }),
         })
         .then((response) => response.json())

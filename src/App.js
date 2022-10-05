@@ -1,11 +1,8 @@
 import Opener from './Opener';
 import Home from './Home';
-import { 
-  BrowserRouter as Router, 
-  Route,
-  Routes,
-  useNavigate
-} from 'react-router-dom';
+import RentalsPage from './components/RentalsPage';
+import CustomersPage from './components/customers/CustomersPage';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
 import CheckOut from './CheckOut';
 
@@ -18,12 +15,12 @@ function App() {
   }
 
   return (
-      <>
-        <Routes>
-            <Route path='/' element={<Home onClickCheckout={onClickCheckout} />}/>
-            <Route path='/checkout' element={<CheckOut/>}/>
-          </Routes>
-      </>
+    <Routes>
+      <Route path="/" element={<Home onClickCheckout={onClickCheckout} />} />
+      <Route path="/checkout" element={<CheckOut />} />
+      <Route path="/rentals" element={<RentalsPage />} />
+      <Route path="/customers" element={<CustomersPage />} />
+    </Routes>
   );
 }
 
