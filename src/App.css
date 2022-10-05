@@ -64,10 +64,14 @@
   color: gold;
 }
 
-body {
+.btn-outline {
+  align-content: center;
+}
+
+html, #root {
   background-color: #0E40A9;
 }
 
-.btn-outline {
-  align-content: center;
+#root > .container {
+  height: 100vh;
 }
