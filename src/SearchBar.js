@@ -4,6 +4,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
 
 function SearchBar ({ setSearchTerm }) {
     const [genresArr, setGenresArr] = useState([])
@@ -14,8 +15,6 @@ function SearchBar ({ setSearchTerm }) {
         .then ((res) => res.json())
         .then ((data) => setGenresArr(data.data))
     }, [])
-
-    console.log(genresArr)
 
     const onChangeHandler = (e) => {
         setSearchTerm(e.target.value)
@@ -31,6 +30,13 @@ function SearchBar ({ setSearchTerm }) {
         setGenreLabel('')
     }
 
+    const genres = genresArr.map((genre) =>{
+      return (
+        <Dropdown.Item key={genre} href="#" onClick={onClickGenre}>{genre}</Dropdown.Item>
+      )
+    })
+
+
     return (
       <div className='search-bar'>
         <InputGroup className="mb-3" style={{display: 'flex', justifyContent: 'center'}}>
@@ -39,11 +45,10 @@ function SearchBar ({ setSearchTerm }) {
             title={genreLabel ? genreLabel : "Genre"}
             id="input-group-dropdown-1"
           >
+            <Container style={{overflowY: 'scroll', maxHeight: '200px', backgroundColor: 'white'}}>
             <Dropdown.Item href="#" onClick={resetSearchTerm}>All Movies</Dropdown.Item>
-            <Dropdown.Item href="#" onClick={onClickGenre}>Action</Dropdown.Item>
-            <Dropdown.Item href="#" onClick={onClickGenre}>Comedy</Dropdown.Item>
-            <Dropdown.Item href="#" onClick={onClickGenre}>Horror</Dropdown.Item>
-            <Dropdown.Item href="#" onClick={onClickGenre}>Romance</Dropdown.Item>
+            {genres}
+            </Container>
           </DropdownButton>
           <Form.Control aria-label="Search for a movie..." 
             style={{maxWidth: '1200px' }}
