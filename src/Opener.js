@@ -1,19 +1,29 @@
 import React from "react"
 
 function Opener() {
-
-    function handleHomePageClick() {
-
-    }
-
+    const handleHomePageClick = ()=> {
+            console.log("hello")}
+            
     return (
-    <div onClick={handleHomePageClick} class="container-fluid">
-        <p className="font">
+    <div onClick={handleHomePageClick} className="container-fluid">
+        <h1 className="font">
             BLOCKBUST3R
-        </p>
+        </h1>
 
     </div>
     );
 }
 
 export default Opener
+
+  // const navigate = useNavigate
+
+    // const handleHomePageClick = ()=> {
+    //     console.log("hello")
+        
+    //     // navigate('/home')
+
+    //     return (
+           
+    //     )
+    // }

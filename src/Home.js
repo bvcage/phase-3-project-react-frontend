@@ -3,11 +3,11 @@ import React from "react";
 function Home() {
     return (
         <>
-            <div className="buttons">
-                <button>Check In</button>
-                <button>Check Out</button>
-                <button>Current Rentals</button>
-                <button>New Customer</button>
+            <div className="btn-outline">
+                <button type="button" class="btn btn-outline-secondary">Check-In</button>
+                <button type="button" class="btn btn-outline-secondary">Check-Out</button>
+                <button type="button" class="btn btn-outline-secondary">Rentals</button>
+                <button type="button" class="btn btn-outline-secondary">New Customer</button>
             </div>
         </>
     );
