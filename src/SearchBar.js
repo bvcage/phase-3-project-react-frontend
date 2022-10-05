@@ -3,11 +3,19 @@ import Form from 'react-bootstrap/Form'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function SearchBar ({ setSearchTerm }) {
-
+    const [genresArr, setGenresArr] = useState([])
     const [genreLabel, setGenreLabel] = useState('')
+
+    useEffect(() => {
+        fetch('http://localhost:9292/movies/genres')
+        .then ((res) => res.json())
+        .then ((data) => setGenresArr(data.data))
+    }, [])
+
+    console.log(genresArr)
 
     const onChangeHandler = (e) => {
         setSearchTerm(e.target.value)
