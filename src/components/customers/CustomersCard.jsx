@@ -3,7 +3,7 @@ import { Card, Button, ButtonGroup } from 'react-bootstrap'
 
 function CustomersCard (props) {
    const { customer, onClickCard, showDetailsFor, onClickEdit, onClickDelete } = props // destructure props
-   const { id, first_name, last_name, phone_number, email } = customer  // destructure customer
+   const { id, first_name, last_name, phone_number, email, join_date } = customer  // destructure customer
 
    function handleClickEdit (e) {
       e.stopPropagation()
@@ -32,7 +32,7 @@ function CustomersCard (props) {
          onClick={() => onClickCard(id)}>
          <Card.Body>
             <Card.Title>{first_name} {last_name}</Card.Title>
-            <Card.Text>Member since: [insert year]</Card.Text>
+            <Card.Text>{`Member since: ${join_date.toLocaleDateString("en-US", {month: 'long', year: 'numeric'})}`}</Card.Text>
             { showDetailsFor === id ? details : null }
          </Card.Body>
       </Card>

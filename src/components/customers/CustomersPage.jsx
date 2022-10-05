@@ -15,7 +15,13 @@ function CustomersPage () {
    useEffect(() => {
       fetch("http://localhost:9292/customers")
       .then(r => r.json())
-      .then(res => setCustomers(res.data))
+      .then(res => {
+         const customersData = res.data.map(customer => {
+            customer.join_date = new Date(Date.parse(customer.join_date))
+            return customer
+         })
+         setCustomers(customersData)
+      })
    }, [])
 
    function deleteSelectedCustomer () {
