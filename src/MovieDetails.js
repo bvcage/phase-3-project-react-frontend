@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 function MovieDetails ({ selectedMovie }) {
 
-    const [customersArr, setCustomersArr] = useState({})
+    const [customersArr, setCustomersArr] = useState([])
     const [selectedCustomer, setSelectedCustomer] = useState({})
     const { id, image_url, imdb_id, plot, title, year } = selectedMovie
 
@@ -42,11 +42,17 @@ function MovieDetails ({ selectedMovie }) {
 
     
     
-    // const customers = customersArr.map((customer) => {
-    //     return (
-    //         <Dropdown.Item key={customer.id}>{customer.first_name} {customer.last_name}</Dropdown.Item>
-    //     )
-    // })
+    const customers = customersArr.map((customer) => {
+
+        const handleClickTest = () => {
+            setSelectedCustomer(customer)
+        }
+
+        return (
+            <Dropdown.Item key={customer.id} onClick={handleClickTest}>{customer.first_name} {customer.last_name}</Dropdown.Item>
+        )
+
+    })
     
 
     return (
@@ -60,11 +66,11 @@ function MovieDetails ({ selectedMovie }) {
         <h2>{title}</h2>
         <h5>{year}</h5>
         <p>{plot}</p>
-        <DropdownButton id="dropdown-basic-button" title="Select Customer">
-            {/* {customers} */}
+        <DropdownButton id="dropdown-basic-button" title={selectedCustomer ? `${selectedCustomer.first_name} ${selectedCustomer.last_name}` : "Select Customer"} >
+            {customers}
         </DropdownButton>
         <br></br>
-        <Button variant='primary' onClick={checkOutMovie}>Check-Out</Button>
+        <Button variant='primary' onClick={checkOutMovie} disabled={selectedCustomer ? false : true}>Check-Out</Button>
     </div>
     </>
     )

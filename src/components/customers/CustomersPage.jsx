@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
+import NavBar from '../NavBar'
 import CustomersForm from './CustomersForm'
 import CustomersList from './CustomersList'
 import CustomersModalDelete from './CustomersModalDelete'
@@ -96,6 +97,7 @@ function CustomersPage () {
    
    return (
       <Container>
+         <NavBar />
          <CustomersForm onNewAdd={handleNewCustomer} />
          <CustomersList customers={customers}
             onClickEdit={handleEditCustomer}

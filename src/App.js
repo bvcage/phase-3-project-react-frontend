@@ -1,10 +1,28 @@
 import Opener from './Opener';
 import Home from './Home';
+import React from "react";
+import { Routes, Route, useNavigate, Link, createBrowserRouter } from 'react-router-dom';
+import './App.css';
+
 import RentalsPage from './components/RentalsPage';
 import CustomersPage from './components/customers/CustomersPage';
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import './App.css';
 import CheckOut from './CheckOut';
+
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: (
+//       <div>
+//         <h1>Hello World</h1>
+//         <Link to="about">About Us</Link>
+//       </div>
+//     ),
+//   },
+//   {
+//     path: "about",
+//     element: <div>About</div>,
+//   },
+// ]);
 
 function App() {
 
