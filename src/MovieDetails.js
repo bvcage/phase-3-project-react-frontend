@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 function MovieDetails ({ selectedMovie }) {
 
     const [customersArr, setCustomersArr] = useState([])
-    const [selectedCustomer, setSelectedCustomer] = useState({})
+    const [selectedCustomer, setSelectedCustomer] = useState()
     const { id, image_url, imdb_id, plot, title, year } = selectedMovie
 
     useEffect(() => {
@@ -38,6 +38,7 @@ function MovieDetails ({ selectedMovie }) {
         .catch((error) => {
             console.error('Error:', error);
         });
+
     }
 
     
@@ -45,16 +46,16 @@ function MovieDetails ({ selectedMovie }) {
     const customers = customersArr.map((customer) => {
 
         const handleClickTest = () => {
-            setSelectedCustomer(customer)
+        setSelectedCustomer(customer)
         }
 
         return (
             <Dropdown.Item key={customer.id} onClick={handleClickTest}>{customer.first_name} {customer.last_name}</Dropdown.Item>
-        )
-
-    })
-    
-
+            )
+        })
+        
+        console.log(selectedCustomer)
+        
     return (
         <>
             <div>
