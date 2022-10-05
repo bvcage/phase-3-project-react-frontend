@@ -41,7 +41,7 @@ function SearchBar ({ setSearchTerm }) {
       <div className='search-bar'>
         <InputGroup className="mb-3" style={{display: 'flex', justifyContent: 'center'}}>
           <DropdownButton
-            variant="outline-secondary"
+            variant="primary"
             title={genreLabel ? genreLabel : "Genre"}
             id="input-group-dropdown-1"
           >
@@ -50,7 +50,8 @@ function SearchBar ({ setSearchTerm }) {
             {genres}
             </Container>
           </DropdownButton>
-          <Form.Control aria-label="Search for a movie..." 
+          <Form.Control aria-label="Search for a movie..."
+            placeholder="Search for a movie..."
             style={{maxWidth: '1200px' }}
             onChange={onChangeHandler}
             onClick={resetSearchTerm}

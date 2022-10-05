@@ -39,6 +39,7 @@ function CheckOut () {
     return (
         <div>
             <NavBar />
+            <br></br>
             <SearchBar setSearchTerm={setSearchTerm} />
             <br></br>
             <div className='card-container'>
