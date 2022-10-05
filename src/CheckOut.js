@@ -4,6 +4,7 @@ import MovieCard from './MovieCard';
 import SearchBar from './SearchBar';
 import MovieDetails from './MovieDetails';
 import './App.css'
+import NavBar from './components/NavBar';
 
 
 function CheckOut () {
@@ -20,7 +21,7 @@ function CheckOut () {
    }, [])
 
    useEffect(() => {
-    setFilterMovieList(moviesArr.filter((movie) => movie.title.includes(searchTerm) || movie.genre.includes(searchTerm)))
+        setFilterMovieList(moviesArr.filter((movie) => movie.title.includes(searchTerm) || movie.genre.includes(searchTerm)))
    }, [searchTerm])
 
 
@@ -36,20 +37,18 @@ function CheckOut () {
 
 
     return (
-    <div>
         <div>
-            <h1>BrickBuster</h1>
+            <NavBar />
+            <SearchBar setSearchTerm={setSearchTerm} />
+            <br></br>
+            <div className='card-container'>
+                {movies}
+            </div>
+            <div className='details'>
+                <MovieDetails selectedMovie={selectedMovie} />
+            </div>
+            
         </div>
-        <SearchBar setSearchTerm={setSearchTerm} />
-        <br></br>
-        <div className='card-container'>
-            {movies}
-        </div>
-        <div className='details'>
-            <MovieDetails selectedMovie={selectedMovie} />
-        </div>
-        
-    </div>
     )
 };
 

@@ -1,18 +1,19 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 
 function Opener() {
-
-    function handleHomePageClick() {
-
+    const navigate = useNavigate()
+    const handleHomePageClick = () => {
+        console.log("hello")
+        navigate("/home")
     }
-
+            
     return (
-    <div onClick={handleHomePageClick} class="container-fluid">
-        <p className="font">
-            BLOCKBUST3R
-        </p>
-
-    </div>
+        <div onClick={handleHomePageClick} className="container-fluid">
+            <h1 className="font">
+                BLOCKBUST3R
+            </h1>
+        </div>
     );
 }
 

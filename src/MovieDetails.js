@@ -58,22 +58,22 @@ function MovieDetails ({ selectedMovie }) {
         
     return (
         <>
-    <div>
-        <Card style={{ width: '18rem', display: 'flex'}}>
-      <Card.Img variant="top" src={image_url} />
-    </Card>
-    </div>
-    <div className='details-info'>
-        <h2>{title}</h2>
-        <h5>{year}</h5>
-        <p>{plot}</p>
-        <DropdownButton id="dropdown-basic-button" title={selectedCustomer ? `${selectedCustomer.first_name} ${selectedCustomer.last_name}` : "Select Customer"} >
-            {customers}
-        </DropdownButton>
-        <br></br>
-        <Button variant='primary' onClick={checkOutMovie} disabled={selectedCustomer ? false : true}>Check-Out</Button>
-    </div>
-    </>
+            <div>
+                <Card style={{ width: '18rem', display: 'flex'}}>
+                    <Card.Img variant="top" src={image_url} />
+                </Card>
+            </div>
+            <div className='details-info'>
+                <h2>{title}</h2>
+                <h5>{year}</h5>
+                <p>{plot}</p>
+                <DropdownButton id="dropdown-basic-button" title={selectedCustomer ? `${selectedCustomer.first_name} ${selectedCustomer.last_name}` : "Select Customer"} >
+                    {customers}
+                </DropdownButton>
+                <br></br>
+                <Button variant='primary' onClick={checkOutMovie} disabled={selectedCustomer ? false : true}>Check-Out</Button>
+            </div>
+        </>
     )
 }
 

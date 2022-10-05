@@ -19,9 +19,8 @@ function CustomersList (props) {
    // create cards for each customer
    const customerCards = customers.map(customer => {
       return (
-         <Col>
+         <Col key={customer.id}>
             <CustomersCard
-               key={customer.id}
                customer={customer}
                showDetailsFor={showDetailsFor}
                onClickCard={handleShowDetails}

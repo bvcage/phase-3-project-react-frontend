@@ -32,7 +32,7 @@ function SearchBar ({ setSearchTerm }) {
     }
 
     return (
-        <div className='search-bar'>
+      <div className='search-bar'>
         <InputGroup className="mb-3" style={{display: 'flex', justifyContent: 'center'}}>
           <DropdownButton
             variant="outline-secondary"
