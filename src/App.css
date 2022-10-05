@@ -32,6 +32,12 @@
   padding-left: 4px;
 }
 
+.details-info {
+  width: 250px;
+  margin-bottom: auto;
+  padding-left: 5px;
+}
+
 .App-link {
   color: #61dafb;
 }

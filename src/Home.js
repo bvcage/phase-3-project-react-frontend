@@ -1,11 +1,11 @@
 import React from "react";
 
-function Home() {
+function Home({ onClickCheckout }) {
     return (
         <>
             <div className="buttons">
                 <button>Check In</button>
-                <button>Check Out</button>
+                <button onClick={onClickCheckout}>Check Out</button>
                 <button>Current Rentals</button>
                 <button>New Customer</button>
             </div>

@@ -7,6 +7,13 @@ import './App.css';
 import CheckOut from './CheckOut';
 
 function App() {
+
+  const navigate = useNavigate();
+
+  const onClickCheckout = () => {
+    navigate('/checkout')
+  }
+
   return (
     <Routes>
       <Route path="/" element={<Home />} />
