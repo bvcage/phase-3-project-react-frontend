@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 function MovieDetails ({ selectedMovie }) {
 
-    const [customersArr, setCustomersArr] = useState({})
+    const [customersArr, setCustomersArr] = useState([])
     const [selectedCustomer, setSelectedCustomer] = useState({})
     const { id, image_url, imdb_id, plot, title, year } = selectedMovie
 
@@ -42,11 +42,11 @@ function MovieDetails ({ selectedMovie }) {
 
     
     
-    // const customers = customersArr.map((customer) => {
-    //     return (
-    //         <Dropdown.Item key={customer.id}>{customer.first_name} {customer.last_name}</Dropdown.Item>
-    //     )
-    // })
+    const customers = customersArr.map((customer) => {
+        return (
+            <Dropdown.Item key={customer.id}>{customer.first_name} {customer.last_name}</Dropdown.Item>
+        )
+    })
     
 
     return (
@@ -61,7 +61,7 @@ function MovieDetails ({ selectedMovie }) {
         <h5>{year}</h5>
         <p>{plot}</p>
         <DropdownButton id="dropdown-basic-button" title="Select Customer">
-            {/* {customers} */}
+            {customers}
         </DropdownButton>
         <br></br>
         <Button variant='primary' onClick={checkOutMovie}>Check-Out</Button>
