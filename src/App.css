@@ -75,3 +75,11 @@ html, #root {
 #root > .container {
   height: 100vh;
 }
+
+#rentals-container {
+  width: 100%;
+}
+
+#rentals-container > .card {
+  width: 100%;
+}

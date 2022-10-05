@@ -34,7 +34,7 @@ function App() {
   }
 
   return (
-    <Container>
+    <Container className="p-0 m-auto">
       <Routes>
         <Route path="/" element={<Opener />} />
         <Route path="/home" element={<Home />} />
