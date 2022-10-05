@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 function MovieDetails ({ selectedMovie }) {
 
     const [customersArr, setCustomersArr] = useState([])
-    const [selectedCustomer, setSelectedCustomer] = useState({})
+    const [selectedCustomer, setSelectedCustomer] = useState()
     const { id, image_url, imdb_id, plot, title, year } = selectedMovie
 
     useEffect(() => {
@@ -28,7 +28,7 @@ function MovieDetails ({ selectedMovie }) {
                 "due_date": null,
                 "price": 15,
                 "movie_id": selectedMovie.id,
-                "customer_id": 3
+                "customer_id": selectedCustomer
             }),
         })
         .then((response) => response.json())
@@ -43,11 +43,17 @@ function MovieDetails ({ selectedMovie }) {
     
     
     const customers = customersArr.map((customer) => {
+
+        const handleClickTest = () => {
+        setSelectedCustomer(customer.id)
+        }
+
         return (
-            <Dropdown.Item key={customer.id}>{customer.first_name} {customer.last_name}</Dropdown.Item>
+            <Dropdown.Item key={customer.id} onClick={handleClickTest}>{customer.first_name} {customer.last_name}</Dropdown.Item>
         )
     })
     
+    console.log(selectedCustomer)
 
     return (
         <>
@@ -64,7 +70,7 @@ function MovieDetails ({ selectedMovie }) {
             {customers}
         </DropdownButton>
         <br></br>
-        <Button variant='primary' onClick={checkOutMovie}>Check-Out</Button>
+        <Button variant='primary' onClick={checkOutMovie} disabled={selectedCustomer ? false : true}>Check-Out</Button>
     </div>
     </>
     )
