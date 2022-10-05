@@ -38,6 +38,7 @@ function MovieDetails ({ selectedMovie }) {
         .catch((error) => {
             console.error('Error:', error);
         });
+
     }
 
     
