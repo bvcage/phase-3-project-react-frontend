@@ -51,7 +51,11 @@ function CustomersPage () {
    }
 
    function handleNewCustomer (customer) {
-      setCustomers([...customers, customer])
+      const newJoinDate = new Date(Date.parse(customer.join_date))
+      const newCustomer = {...customer,
+         join_date: newJoinDate
+      }
+      setCustomers([...customers, newCustomer])
    }
 
    function hideModal () {
