@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import NavBar from '../NavBar'
 import CustomersForm from './CustomersForm'
-import CustomersList from './CustomersList'
+import CustomersContainer from './CustomersContainer'
 import CustomersModalDelete from './CustomersModalDelete'
 import CustomersModalEdit from './CustomersModalEdit'
 
@@ -103,7 +103,7 @@ function CustomersPage () {
       <Container>
          <NavBar />
          <CustomersForm onNewAdd={handleNewCustomer} />
-         <CustomersList customers={customers}
+         <CustomersContainer customers={customers}
             onClickEdit={handleEditCustomer}
             onClickDelete={handleClickDelete} />
 
