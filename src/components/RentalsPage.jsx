@@ -18,13 +18,14 @@ function RentalsPage () {
     rental.rental.due_date = new Date(Date.parse(rental.rental.due_date))
     return (
       <Card key={rental.rental.id}>
-      {rental.customer.first_name} {rental.customer.last_name} Title: {rental.movie.title} Checkout Date: {(rental.rental.checkout_date).toLocaleDateString()} Due Date: {(rental.rental.due_date).toLocaleDateString()}
-      <Button variant='primary' onClick={() => checkInMovie(rental.rental.id)}>Check-In</Button>
+        {rental.customer.first_name} {rental.customer.last_name} Title: {rental.movie.title} Checkout Date: {(rental.rental.checkout_date).toLocaleDateString()} Due Date: {(rental.rental.due_date).toLocaleDateString()}
+        <Button variant='primary' onClick={() => checkInMovie(rental.rental.id)}>Check-In</Button>
       </Card>
     )
   })
 
   const checkInMovie = (rentalId) => {
+    setRentalsArr([...rentalsArr.filter(rental => rental.rental.id !== rentalId)])
     fetch(`http://localhost:9292/rentals/${rentalId}/delete`, {
       method: 'DELETE',
       headers: {
