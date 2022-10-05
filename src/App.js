@@ -3,6 +3,7 @@ import Home from './Home';
 import React from "react";
 import { Routes, Route, useNavigate, Link, createBrowserRouter } from 'react-router-dom';
 import './App.css';
+import { Container } from 'react-bootstrap'
 
 import RentalsPage from './components/RentalsPage';
 import CustomersPage from './components/customers/CustomersPage';
@@ -33,13 +34,15 @@ function App() {
   }
 
   return (
-    <Routes>
-      <Route path="/" element={<Opener />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/checkout" element={<CheckOut />} />
-      <Route path="/rentals" element={<RentalsPage />} />
-      <Route path="/customers" element={<CustomersPage />} />
-    </Routes>
+    <Container>
+      <Routes>
+        <Route path="/" element={<Opener />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/checkout" element={<CheckOut />} />
+        <Route path="/rentals" element={<RentalsPage />} />
+        <Route path="/customers" element={<CustomersPage />} />
+      </Routes>
+    </Container>
   );
 }
 
