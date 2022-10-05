@@ -28,7 +28,7 @@ function MovieDetails ({ selectedMovie }) {
                 "due_date": null,
                 "price": 15,
                 "movie_id": selectedMovie.id,
-                "customer_id": selectedCustomer
+                "customer_id": selectedCustomer.id
             }),
         })
         .then((response) => response.json())
@@ -45,16 +45,16 @@ function MovieDetails ({ selectedMovie }) {
     const customers = customersArr.map((customer) => {
 
         const handleClickTest = () => {
-        setSelectedCustomer(customer.id)
+        setSelectedCustomer(customer)
         }
 
         return (
             <Dropdown.Item key={customer.id} onClick={handleClickTest}>{customer.first_name} {customer.last_name}</Dropdown.Item>
-        )
-    })
-    
-    console.log(selectedCustomer)
-
+            )
+        })
+        
+        console.log(selectedCustomer)
+        
     return (
         <>
     <div>
@@ -66,7 +66,7 @@ function MovieDetails ({ selectedMovie }) {
         <h2>{title}</h2>
         <h5>{year}</h5>
         <p>{plot}</p>
-        <DropdownButton id="dropdown-basic-button" title="Select Customer">
+        <DropdownButton id="dropdown-basic-button" title={selectedCustomer ? `${selectedCustomer.first_name} ${selectedCustomer.last_name}` : "Select Customer"} >
             {customers}
         </DropdownButton>
         <br></br>
