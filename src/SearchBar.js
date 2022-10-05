@@ -31,6 +31,7 @@ function SearchBar ({ setSearchTerm }) {
             title={genreLabel ? genreLabel : "Genre"}
             id="input-group-dropdown-1"
           >
+            <Dropdown.Item href="#" onClick={resetSearchTerm}>All Movies</Dropdown.Item>
             <Dropdown.Item href="#" onClick={onClickGenre}>Action</Dropdown.Item>
             <Dropdown.Item href="#" onClick={onClickGenre}>Comedy</Dropdown.Item>
             <Dropdown.Item href="#" onClick={onClickGenre}>Horror</Dropdown.Item>
