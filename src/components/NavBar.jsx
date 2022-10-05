@@ -13,21 +13,15 @@ function NavBar() {
       <Container>
          <Button
             variant={btnVariant}
-            onClick={() => navigate("/")}
-            active={path === "/"}>
-               Check-In
-         </Button>
-         <Button
-            variant={btnVariant}
             onClick={() => navigate("/checkout")}
             active={path === "/checkout"}>
-               Check-Out
+               Check-Out Movie
          </Button>
          <Button
             variant={btnVariant}
             onClick={() => navigate("/rentals")}
             active={path === "/rentals"}>
-               Rentals
+               Check-In Rental
          </Button>
          <Button
             variant={btnVariant}
