@@ -8,32 +8,37 @@ function NavBar() {
    const navigate = useNavigate()
 
    const btnVariant = "outline-secondary"
+   const btnClass = "m-1"
 
    return (
       <Container>
          <Button
             variant={btnVariant}
+            className={btnClass}
+            onClick={() => navigate("/home")}
+            active={path === "/home"}>
+               Home
+         </Button>
+         <Button
+            variant={btnVariant}
+            className={btnClass}
             onClick={() => navigate("/checkout")}
             active={path === "/checkout"}>
                Check-Out Movie
          </Button>
          <Button
             variant={btnVariant}
+            className={btnClass}
             onClick={() => navigate("/rentals")}
             active={path === "/rentals"}>
                Check-In Rental
          </Button>
          <Button
             variant={btnVariant}
+            className={btnClass}
             onClick={() => navigate("/customers")}
             active={path === "/customers"}>
                Customers
-         </Button>
-         <Button
-            variant={btnVariant}
-            onClick={() => navigate("/home")}
-            active={path === "/home"}>
-               Home
          </Button>
       </Container>
    );
