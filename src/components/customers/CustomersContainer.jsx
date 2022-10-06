@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import CustomersCard from './CustomersCard'
 
-function CustomersList (props) {
+function CustomersContainer (props) {
    const { customers, onClickEdit, onClickDelete } = props   // destructure props
 
    // display details for 1 customer at a time
@@ -19,9 +19,8 @@ function CustomersList (props) {
    // create cards for each customer
    const customerCards = customers.map(customer => {
       return (
-         <Col>
+         <Col key={customer.id}>
             <CustomersCard
-               key={customer.id}
                customer={customer}
                showDetailsFor={showDetailsFor}
                onClickCard={handleShowDetails}
@@ -40,4 +39,4 @@ function CustomersList (props) {
    )
 }
 
-export default CustomersList
+export default CustomersContainer
