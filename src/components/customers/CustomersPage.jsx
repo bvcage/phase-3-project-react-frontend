@@ -100,7 +100,7 @@ function CustomersPage () {
    )
    
    return (
-      <Container id="customers-page">
+      <Container id="customers-page" className="page-container">
          <CustomersForm onNewAdd={handleNewCustomer} />
          <CustomersContainer customers={customers}
             onClickEdit={handleEditCustomer}
