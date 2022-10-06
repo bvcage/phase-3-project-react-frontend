@@ -67,12 +67,14 @@ function RentalsPage () {
                 <td>{(rental.rental.checkout_date).toLocaleDateString()}</td>
                 <td>{(rental.rental.due_date).toLocaleDateString()}</td>
                 <td>
-                    <Button onClick={() => editSelectedRental(rental)}>
-                        Extend
-                    </Button>
-                    <Button  onClick={() => checkinSelectedRental(rental.rental)} className="Delete ms-2" >
-                        Check-In
-                    </Button>
+                    <div style={{float: 'right'}}>
+                        <Button onClick={() => editSelectedRental(rental)}>
+                            Extend
+                        </Button>
+                        <Button onClick={() => checkinSelectedRental(rental.rental)} className="Delete ms-2" >
+                            Check-In
+                        </Button>
+                    </div>
                 </td>
             </tr>
         )
