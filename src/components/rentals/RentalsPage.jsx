@@ -66,7 +66,7 @@ function RentalsPage () {
                 <td tdstyle={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>{rental.movie.title}</td>
                 <td>{(rental.rental.checkout_date).toLocaleDateString()}</td>
                 <td>{(rental.rental.due_date).toLocaleDateString()}</td>
-                <td>
+                <td width="220px">
                     <div style={{float: 'right'}}>
                         <Button onClick={() => editSelectedRental(rental)}>
                             Extend
@@ -82,7 +82,7 @@ function RentalsPage () {
 
     return (
         <Container id="rentals-page" className="page-container">
-            <Table striped style={{ minWidth:"960" }}>
+            <Table striped hover style={{ minWidth:"960" }}>
                 <thead>
                     <tr>
                         <th>First Name</th>
@@ -90,7 +90,7 @@ function RentalsPage () {
                         <th>Title</th>
                         <th>Checkout Date</th>
                         <th>Due Date</th>
-                        <th>Actions</th>
+                        <th style={{textAlign: 'right'}}>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
