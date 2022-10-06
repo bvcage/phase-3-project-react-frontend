@@ -100,8 +100,7 @@ function RentalsPage () {
   }
 
   return (
-    <Container className="p-0 m-auto">
-      <NavBar />
+    <Container className="p-0 m-auto page-container">
       <Container id="rentals-container" className="p-4">
         {rentals}
       </Container>
