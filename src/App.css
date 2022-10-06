@@ -2,6 +2,10 @@
   background-color: #FFA904;
 }
 
+.page-container {
+  height: 100%;
+}
+
 .card {
   flex-shrink: 0;
   width: 300px;
@@ -74,4 +78,10 @@ html, #root {
 
 #root > .container {
   height: 100vh;
+}
+
+#header {
+  text-align: center;
+  height: 15%;
+  min-height: 100px;
 }
