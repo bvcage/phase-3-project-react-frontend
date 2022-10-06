@@ -69,7 +69,6 @@ html, #root {
   display: flex;
   overflow-x: scroll;
   width: 97%;
-  height: 300px;
 }
 
 .details {

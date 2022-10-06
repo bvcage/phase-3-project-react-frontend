@@ -39,7 +39,7 @@ function CheckOut () {
         <Container id="checkout-page" className="page-container">
             <SearchBar setSearchTerm={setSearchTerm} />
             <br></br>
-            <Container className='card-container' style={{height: '300px'}}>
+            <Container className='card-container'>
                 {movies}
             </Container>
             <div className='details'>
