@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import MovieCard from './MovieCard';
 import SearchBar from './SearchBar';
 import MovieDetails from './MovieDetails';
@@ -37,8 +37,7 @@ function CheckOut () {
 
 
     return (
-        <div>
-            <NavBar />
+        <Container id="checkout-page" className="page-container">
             <SearchBar setSearchTerm={setSearchTerm} />
             <br></br>
             <div className='card-container'>
@@ -47,8 +46,7 @@ function CheckOut () {
             <div className='details'>
                 <MovieDetails selectedMovie={selectedMovie} />
             </div>
-            
-        </div>
+        </Container>
     )
 };
 
