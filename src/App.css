@@ -1,9 +1,31 @@
-.container {
+html, #root {
+  background-color: #0E40A9;
+}
+
+#root > .container {
   background-color: #FFA904;
+  height: 100vh;
+  display: block;
+}
+
+#header {
+  text-align: center;
+  height: 15%;
+  min-height: 100px;
+}
+
+#header h1 {
+  font-family: 'Staatliches', cursive;
+  font-size: 100px;
+}
+
+#header > .container {
+  align-items: center;
+  justify-content: center;
 }
 
 .page-container {
-  height: 100%;
+  overflow-y: scroll;
 }
 
 .card {
@@ -72,16 +94,3 @@
   align-content: center;
 }
 
-html, #root {
-  background-color: #0E40A9;
-}
-
-#root > .container {
-  height: 100vh;
-}
-
-#header {
-  text-align: center;
-  height: 15%;
-  min-height: 100px;
-}

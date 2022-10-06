@@ -3,8 +3,8 @@ import { Row, Col, Container } from 'react-bootstrap';
 import MovieCard from './MovieCard';
 import SearchBar from './SearchBar';
 import MovieDetails from './MovieDetails';
-import './App.css'
-import NavBar from './components/NavBar';
+import '../../App.css'
+import NavBar from '../NavBar';
 
 
 function CheckOut () {

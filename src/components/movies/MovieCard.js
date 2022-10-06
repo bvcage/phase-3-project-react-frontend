@@ -1,4 +1,4 @@
-import "./App.css"
+import "../../App.css"
 import Card from 'react-bootstrap/Card';
 import { useState } from "react";
 

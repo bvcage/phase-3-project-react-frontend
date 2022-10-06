@@ -1,10 +1,10 @@
-import "./App.css"
+import "../../App.css"
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table'
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 
-function CurrentRentals() {
+function RentalsPage () {
 
     const [rentalsArr, setRentalsArr] = useState([])
 
@@ -94,4 +94,4 @@ function CurrentRentals() {
 
 }
 
-export default CurrentRentals;
+export default RentalsPage;

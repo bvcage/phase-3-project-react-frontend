@@ -1,4 +1,4 @@
-import "./App.css"
+import "../../App.css"
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
