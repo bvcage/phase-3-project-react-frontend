@@ -1,6 +1,6 @@
 import "./App.css"
-import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table'
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 
@@ -33,7 +33,7 @@ function CurrentRentals() {
 
         const oldCheckoutDate = rental.rental.due_date
         const newCheckoutDate = new Date()
-        newCheckoutDate.setDate(oldCheckoutDate.getDate() + 2)
+        newCheckoutDate.setTime(oldCheckoutDate.getTime() + 2 * (24 * 60 * 60 * 1000) )
 
         fetch(`http://localhost:9292/rentals/${rental.rental.id}/edit`, {
             method: 'PATCH',
@@ -54,27 +54,43 @@ function CurrentRentals() {
         rental.rental.checkout_date = new Date(Date.parse(rental.rental.checkout_date))
         rental.rental.due_date = new Date(Date.parse(rental.rental.due_date))
         return (
-            <div>
-                <Card key={rental.rental.id}>
-                    {rental.customer.first_name} {rental.customer.last_name} Title: {rental.movie.title} Checkout Date: {(rental.rental.checkout_date).toLocaleDateString()} Due Date: {(rental.rental.due_date).toLocaleDateString()}
-                </Card>
-                <div>
-                    <Button onClick={() => deleteSelectedRental(rental.rental.id)} className="Delete">
-                        Check-In
-                    </Button>
-                    <Button onClick={() => editSelectedRental(rental)}>
-                        Extend Due Date 2 Days
-                    </Button>
-                </div>
-            </div>
+                <tr>
+                    <td>{rental.customer.first_name}</td>
+                    <td>{rental.customer.last_name}</td>
+                    <td tdStyle={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>{rental.movie.title}</td>
+                    <td>{(rental.rental.checkout_date).toLocaleDateString()}</td>
+                    <td>{(rental.rental.due_date).toLocaleDateString()}</td>
+                    <td>
+                        <Button onClick={() => editSelectedRental(rental)}>
+                            Extend
+                        </Button>
+                        <Button  onClick={() => deleteSelectedRental(rental.rental.id)} className="Delete ms-2" >
+                            Check-In
+                        </Button>
+                    </td>
+                </tr>
         )
-    })
+})
 
-    return (
-        <Container>
-            {rentals}
-        </Container>
-    )
+return (
+    <Container>
+        <Table striped style={ { minWidth:"960"}}>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Title</th>
+                <th>Checkout Date</th>
+                <th>Due Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {rentals}
+        </tbody>
+        </Table>
+    </Container>
+)
 
 }
 
