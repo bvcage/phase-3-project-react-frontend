@@ -7,13 +7,14 @@ function CheckOutModal ({ smShow, setSmShow }) {
     return (
         <>
           <Modal
-            size="sm"
+            size="md"
             show={smShow}
+            centered
             onHide={() => setSmShow(false)}
-            aria-labelledby="example-modal-sizes-title-sm"
+            aria-labelledby="contained-modal-title-vcenter"
           >
             <Modal.Header closeButton>
-              <Modal.Title id="example-modal-sizes-title-sm">
+              <Modal.Title id="contained-modal-title-vcenter">
                 Success!
               </Modal.Title>
             </Modal.Header>
