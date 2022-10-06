@@ -32,6 +32,11 @@ html, #root {
   background-color: #FFA904;
 }
 
+#header button:hover {
+  color: #434446;
+  border-color: #FFA904;
+}
+
 .page-container {
   padding-top: 1rem;
   overflow-y: scroll;
