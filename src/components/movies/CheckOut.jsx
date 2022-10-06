@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
-import { Row, Col, Container } from 'react-bootstrap';
-import MovieCard from './MovieCard';
-import SearchBar from './SearchBar';
-import MovieDetails from './MovieDetails';
+import { useEffect, useState } from 'react'
+import { Container } from 'react-bootstrap'
+import MovieCard from './MovieCard'
+import SearchBar from './SearchBar'
+import MovieDetails from './MovieDetails'
 import '../../App.css'
-import NavBar from '../NavBar';
 
 
 function CheckOut () {
