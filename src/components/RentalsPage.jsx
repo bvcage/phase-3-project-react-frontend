@@ -43,7 +43,6 @@ function RentalsPage () {
 
   return (
     <Container>
-      <NavBar />
       {rentals}
     </Container>
   )
