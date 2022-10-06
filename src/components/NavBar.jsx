@@ -9,11 +9,13 @@ function NavBar() {
 
    const btnVariant = "outline-secondary"
    const btnClass = "m-1"
+   const btnSize = "lg"
 
    return (
       <Container>
          <Button
             variant={btnVariant}
+            size={btnSize}
             className={btnClass}
             onClick={() => navigate("/home")}
             active={path === "/home"}>
@@ -22,20 +24,23 @@ function NavBar() {
          <Button
             variant={btnVariant}
             className={btnClass}
+            size={btnSize}
             onClick={() => navigate("/checkout")}
             active={path === "/checkout"}>
-               Check-Out Movie
+               Check-Out
          </Button>
          <Button
             variant={btnVariant}
             className={btnClass}
+            size={btnSize}
             onClick={() => navigate("/rentals")}
             active={path === "/rentals"}>
-               Check-In Rental
+               Check-In
          </Button>
          <Button
             variant={btnVariant}
             className={btnClass}
+            size={btnSize}
             onClick={() => navigate("/customers")}
             active={path === "/customers"}>
                Customers
