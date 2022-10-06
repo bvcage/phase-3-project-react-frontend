@@ -13,19 +13,25 @@ function RentalsPage () {
     }, [])
 
     function getRentals() {
-        fetch("http://localhost:9292/rentals")
+        fetch("http://localhost:9292/rentals/out")
             .then(resp => resp.json())
             .then((data) => setRentalsArr(data.data))
     }
 
-    function deleteSelectedRental(id) {
-        fetch(`http://localhost:9292/rentals/${id}/delete`, {
-            method: 'DELETE'
-        }).then((resp) => {
-            resp.json().then((resp) => {
-                console.warn(resp)
-                getRentals()
-            })
+    function checkinSelectedRental(rental) {
+        const checkInDate = new Date();
+        checkInDate.setTime(Date.now())
+        fetch(`http://localhost:9292/rentals/${rental.id}/edit`, {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({"checkin_date": checkInDate})
+        }).then(r => r.json()).then(data => {
+            const checkin = data.data
+            const newRentalsArr = rentalsArr.filter(rental => rental.rental.id !== checkin.id)
+            setRentalsArr(newRentalsArr)
         })
     }
 
@@ -64,7 +70,7 @@ function RentalsPage () {
                     <Button onClick={() => editSelectedRental(rental)}>
                         Extend
                     </Button>
-                    <Button  onClick={() => deleteSelectedRental(rental.rental.id)} className="Delete ms-2" >
+                    <Button  onClick={() => checkinSelectedRental(rental.rental)} className="Delete ms-2" >
                         Check-In
                     </Button>
                 </td>
