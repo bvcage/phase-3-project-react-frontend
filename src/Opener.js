@@ -3,10 +3,10 @@ import "./Opener.css"
 import { Link } from "react-router-dom";
 
 function Opener() {
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const handleHomePageClick = () => {
         console.log("hello")
-        navigate("/home")
+        // navigate("/home")
     }
             
     return (

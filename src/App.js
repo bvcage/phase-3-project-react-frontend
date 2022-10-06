@@ -2,8 +2,8 @@ import "./App.css"
 import React from 'react';
 import Opener from './Opener';
 import CheckOut from './CheckOut';
-import Rentals from './Rentals';
-import Customers from './Customers';
+import RentalsPage from './components/RentalsPage'
+import CustomersPage from "./components/customers/CustomersPage";
 import Home from './Home';
 import { 
   createBrowserRouter,
@@ -48,7 +48,7 @@ function App() {
       path="/rentals"
       element={
         <>
-          <Rentals />
+          <RentalsPage />
         </>
       }
     />
@@ -56,7 +56,7 @@ function App() {
       path="/customers"
       element={
         <>
-          <Customers />
+          <CustomersPage />
         </>
       }
     />

@@ -7,12 +7,25 @@ $radius: 0.2rem;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
 
 body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin: 2rem;
 }
+
+.logo {
+    font-size: 1in;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: absolute;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    left: 50%;
+    transform: translateX(-50%);
+    color: gold;
 }
+
 .wrapper{
     display:grid;
     grid-template-columns: repeat(auto-fit,
@@ -25,6 +38,7 @@ body {
     overflow:hidden;
     box-shadow: 0 2px 20px;
     border-radius:$radius;
+    text-align: center;
     display:flex;
     flex-direction:column;
     justify-content:space-between;
