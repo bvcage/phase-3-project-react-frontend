@@ -73,7 +73,7 @@ function CurrentRentals() {
 })
 
     return (
-        <Container>
+        <Container id="rentals-page" className="page-container">
             <Table striped style={{ minWidth:"960" }}>
                 <thead>
                     <tr>
