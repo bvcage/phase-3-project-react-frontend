@@ -2,14 +2,17 @@ import "./App.css"
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+
 import Card from 'react-bootstrap/Card';
 import { useState, useEffect } from "react";
+import CheckOutModal from "./CheckOutModal";
 
 function MovieDetails ({ selectedMovie }) {
 
     const [customersArr, setCustomersArr] = useState([])
     const [selectedCustomer, setSelectedCustomer] = useState()
     const { id, image_url, imdb_id, plot, title, year } = selectedMovie
+    const [smShow, setSmShow] = useState(false);
 
     useEffect(() => {
         fetch('http://localhost:9292/customers')
@@ -38,7 +41,7 @@ function MovieDetails ({ selectedMovie }) {
         .catch((error) => {
             console.error('Error:', error);
         });
-
+        setSmShow(true)
     }
 
     
@@ -55,6 +58,10 @@ function MovieDetails ({ selectedMovie }) {
         })
         
         console.log(selectedCustomer)
+
+    const showModal = (
+        <CheckOutModal smShow={smShow} setSmShow={setSmShow}  />
+    )
         
     return (
         <>
@@ -70,7 +77,9 @@ function MovieDetails ({ selectedMovie }) {
                 <DropdownButton id="dropdown-basic-button" title={selectedCustomer ? `${selectedCustomer.first_name} ${selectedCustomer.last_name}` : "Select Customer"} >
                     {customers}
                 </DropdownButton>
+                <br></br>
                 <Button variant='primary' onClick={checkOutMovie} disabled={selectedCustomer ? false : true}>Check-Out</Button>
+                {smShow ? showModal : null}
             </div>
         </>
     )
