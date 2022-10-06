@@ -1,6 +1,6 @@
 import "../../App.css"
 import React, { useState, useEffect } from "react"
-import { Container, Row, Col, Card, Button } from "react-bootstrap"
+import { Container, Row, Col, Card, Button, Accordion, Table } from "react-bootstrap"
 import NavBar from "../NavBar"
 
 function RentalsPage () {
@@ -8,7 +8,7 @@ function RentalsPage () {
    const [rentalsArr, setRentalsArr] = useState([])
 
    useEffect(() => {
-      fetch("http://localhost:9292/rentals")
+      fetch("http://localhost:9292/rentals/out")
       .then(resp => resp.json())
       .then((data) => setRentalsArr(data.data))
    }, [])
@@ -17,22 +17,20 @@ function RentalsPage () {
       rental.rental.checkout_date = new Date(Date.parse(rental.rental.checkout_date))
       rental.rental.due_date = new Date(Date.parse(rental.rental.due_date))
       return (
-         <Card key={rental.rental.id} className="m-auto">
-         <Card.Body>
-            <Row>
-               <Col>
-                  {rental.customer.first_name} {rental.customer.last_name}
-               </Col>
-               <Col>
-                  Title: {rental.movie.title}
-               </Col>
-               <Col>
-                  Checkout Date: {(rental.rental.checkout_date).toLocaleDateString()}
-               </Col>
-               <Col>
-                  Due Date: {(rental.rental.due_date).toLocaleDateString()}
-               </Col>
-               <Col>
+         <tr key={rental.rental.id}>
+            <td>
+               {rental.customer.first_name} {rental.customer.last_name}
+            </td>
+            <td>
+               {rental.movie.title}
+            </td>
+            <td>
+               {(rental.rental.checkout_date).toLocaleDateString()}
+            </td>
+            <td>
+               {(rental.rental.due_date).toLocaleDateString()}
+            </td>
+            <td>
                <div style={{float: "right"}}>
                   <Button
                      variant='primary'
@@ -47,21 +45,25 @@ function RentalsPage () {
                         extend
                   </Button>
                </div>
-               </Col>
-            </Row>
-         </Card.Body>
-         </Card>
+            </td>
+         </tr>
       )
    })
 
    const checkInMovie = (rentalId) => {
+      // set checkin date to now
+      const checkInDate = new Date()
+      checkInDate.setTime(Date.now())
+      // clear from rentals array
       setRentalsArr([...rentalsArr.filter(rental => rental.rental.id !== rentalId)])
-      fetch(`http://localhost:9292/rentals/${rentalId}/delete`, {
-         method: 'DELETE',
+      // sent patch request to server
+      fetch(`http://localhost:9292/rentals/${rentalId}/edit`, {
+         method: 'PATCH',
          headers: {
-         'Content-Type': 'application/json',
-         "Accept": "application/json"
-         }
+            'Content-Type': 'application/json',
+            "Accept": "application/json"
+         },
+         body: JSON.stringify({"checkin_date": checkInDate})
       })
       .then((response) => response.json())
       .then((data) => {
@@ -80,8 +82,8 @@ function RentalsPage () {
       fetch(`http://localhost:9292/rentals/${rentalId}/edit`, {
          method: 'PATCH',
          headers: {
-         "Content-Type": "application/json",
-         "Accept": "application/json"
+            "Content-Type": "application/json",
+            "Accept": "application/json"
          },
          body: JSON.stringify({"due_date": newDueDate})
       }).then(r=>r.json())
@@ -101,7 +103,20 @@ function RentalsPage () {
 
    return (
       <Container id="rentals-container" className="p-4">
-         {rentals}
+         <Table>
+            <thead>
+               <tr>
+                  <th>Name</th>
+                  <th>Movie</th>
+                  <th>Checkout Date</th>
+                  <th>Due Date</th>
+                  <th></th>
+               </tr>
+            </thead>
+            <tbody>
+               {rentals}
+            </tbody>
+         </Table>
       </Container>
    )
 
