@@ -1,116 +1,28 @@
 import "./App.css"
 import React from 'react';
-import Opener from './Opener';
-import CheckOut from './CheckOut';
-import RentalsPage from './RentalsPage'
+import { Container } from "react-bootstrap";
+import { Routes, Route } from 'react-router-dom';
+import Opener from './components/home/Opener';
+import CheckOut from './components/movies/CheckOut';
+import RentalsPage from './components/rentals/RentalsPage'
 import CustomersPage from "./components/customers/CustomersPage";
-import Home from './Home';
-import { 
-  createBrowserRouter,
-  Routes,
-  Route,
-  RouterProvider,
-  Link,
-  // Routes,
-  useNavigate } from 'react-router-dom';
-import './App.css';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from './components/home/Home';
 
 function App() {
-
   return (
-<div className='Appz'>
-  <Routes>
-    <Route 
-      path="/"
-      element={
-        <>
-          <Opener />
-        </>
-       }
-    />
-    <Route
-      path="/home"
-      element={
-        <>
-          <Home />
-        </>
-      }
-    />
-    <Route
-      path="/checkout"
-      element={
-        <>
-          <CheckOut />
-        </>
-      }
-    />
-    <Route
-      path="/rentals"
-      element={
-        <>
-          <RentalsPage />
-        </>
-      }
-    />
-    <Route
-      path="/customers"
-      element={
-        <>
-          <CustomersPage />
-        </>
-      }
-    />
-    {/* {
-      path: "/home",
-      element: (
-        <>  
-          <Home />
-          <Link to="checkout">Checkout</Link>
-          <Link to="rentals">Rentals</Link>
-          <Link to="customers">Customers</Link>
-          <div>welcome Home</div>,
-        </>
-      ),
-    },
-    {
-      path: "/checkout",
-      element: (
-        <>  
-          <CheckOut />
-          <Link to="home">Home</Link>
-          <Link to="rentals">Rentals</Link>
-          <Link to="customers">Customers</Link>
-          <div>Checkout</div>,
-        </>
-      ),
-    },
-    {
-      path: "/rentals",
-      element: (
-        <>
-          <Rentals />
-          <Link to="home">Home</Link>
-          <Link to="checkout">Checkout</Link>
-          <Link to="customers">Customers</Link>
-          <div>Rental</div>,
-        </>
-      ),
-    },
-    {
-      path: "/customers",
-      element: (
-        <>
-          <Customers />
-          <Link to="home">Home</Link>
-          <Link to="checkout">Checkout</Link>
-          <Link to="rentals">Rentals</Link>
-          <div>Customers</div>,
-        </>
-      ),
-    }, */}
-    </Routes>
-</div>
-  )
-  }
+    <Container>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Opener />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/checkout" element={<CheckOut />} />
+        <Route path="/rentals" element={<RentalsPage />} />
+        <Route path="/customers" element={<CustomersPage />} />
+      </Routes>
+      <Footer />
+    </Container>)
+}
 
 export default App;

@@ -1,17 +1,18 @@
-import "./App.css"
+import "../../App.css"
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
 import Card from 'react-bootstrap/Card';
 import { useState, useEffect } from "react";
+import { Container } from "react-bootstrap";
 import CheckOutModal from "./CheckOutModal";
 
 function MovieDetails ({ selectedMovie }) {
 
     const [customersArr, setCustomersArr] = useState([])
     const [selectedCustomer, setSelectedCustomer] = useState()
-    const { id, image_url, imdb_id, plot, title, year } = selectedMovie
+    const { image_url, plot, title, year } = selectedMovie
     const [smShow, setSmShow] = useState(false);
 
     useEffect(() => {
@@ -44,18 +45,14 @@ function MovieDetails ({ selectedMovie }) {
         setSmShow(true)
     }
 
-    
-    
     const customers = customersArr.map((customer) => {
-
         const handleClickTest = () => {
-        setSelectedCustomer(customer)
+            setSelectedCustomer(customer)
         }
-
         return (
             <Dropdown.Item key={customer.id} onClick={handleClickTest}>{customer.first_name} {customer.last_name}</Dropdown.Item>
-            )
-        })
+        )
+    })
         
         console.log(selectedCustomer)
 
@@ -64,12 +61,10 @@ function MovieDetails ({ selectedMovie }) {
     )
         
     return (
-        <>
-            <div>
-                <Card style={{ width: '18rem', display: 'flex'}}>
-                    <Card.Img variant="top" src={image_url} />
-                </Card>
-            </div>
+        <Container>
+            <Card style={{ width: '18rem', display: 'flex'}}>
+                <Card.Img variant="top" src={image_url} />
+            </Card>
             <div className='details-info'>
                 <h2>{title}</h2>
                 <h5>{year}</h5>
@@ -81,7 +76,7 @@ function MovieDetails ({ selectedMovie }) {
                 <Button variant='primary' onClick={checkOutMovie} disabled={selectedCustomer ? false : true}>Check-Out</Button>
                 {smShow ? showModal : null}
             </div>
-        </>
+        </Container>
     )
 }
 

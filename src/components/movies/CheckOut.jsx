@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
-import { Row, Col, Container } from 'react-bootstrap';
-import MovieCard from './MovieCard';
-import SearchBar from './SearchBar';
-import MovieDetails from './MovieDetails';
-import './App.css'
-import NavBar from './components/NavBar';
+import { useEffect, useState } from 'react'
+import { Container } from 'react-bootstrap'
+import MovieCard from './MovieCard'
+import SearchBar from './SearchBar'
+import MovieDetails from './MovieDetails'
+import '../../App.css'
 
 
 function CheckOut () {
@@ -37,9 +36,7 @@ function CheckOut () {
 
 
     return (
-        <div>
-            <NavBar />
-            <br></br>
+        <Container id="checkout-page" className="page-container">
             <SearchBar setSearchTerm={setSearchTerm} />
             <br></br>
             <Container className='card-container' style={{height: '300px'}}>
@@ -48,8 +45,7 @@ function CheckOut () {
             <div className='details'>
                 <MovieDetails selectedMovie={selectedMovie} />
             </div>
-            
-        </div>
+        </Container>
     )
 };
 

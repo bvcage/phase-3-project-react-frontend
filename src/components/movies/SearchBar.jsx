@@ -1,4 +1,4 @@
-import "./App.css"
+import "../../App.css"
 import Form from 'react-bootstrap/Form'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
