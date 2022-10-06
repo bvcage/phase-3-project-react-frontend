@@ -1,20 +1,21 @@
 import "../../App.css"
-import Card from 'react-bootstrap/Card';
-import { useState } from "react";
-
+import Card from 'react-bootstrap/Card'
 
 function MovieCard ({ movie, onClickMovie }) {
     const { image_url } = movie
    
-
     const handleClick = () => {
         onClickMovie(movie)
     }
 
     return (
-        <Card className="bg-dark text-white" value={movie.id} style={{display: "inline-grid", maxWidth: '200px'}} onClick={handleClick}>
-      <Card.Img src={image_url} />
-    </Card>
+      <Card
+        className="bg-dark text-white"
+        value={movie.id}
+        style={{display: "inline-grid", maxWidth: '200px'}}
+        onClick={handleClick}>
+          <Card.Img src={image_url} />
+      </Card>
   );
 }
 
