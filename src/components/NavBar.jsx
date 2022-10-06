@@ -13,6 +13,12 @@ function NavBar() {
       <Container className="p-0" style={{position: "absolute", bottom: "0px"}} >
          <Button
             variant={btnVariant}
+            onClick={() => navigate("/checkin")}
+            active={path === "/checkin"}>
+               Check-In Movie
+         </Button>
+         <Button
+            variant={btnVariant}
             onClick={() => navigate("/checkout")}
             active={path === "/checkout"}>
                Check-Out Movie
