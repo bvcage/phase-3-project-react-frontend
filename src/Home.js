@@ -1,9 +1,10 @@
 import React from "react";
+import NavBar from "./components/NavBar";
 import { Link } from "react-router-dom";
 // import Cardz from "./Cardz";
 import './Home.scss'
 
-function Home({ onClickCheckout }) {
+function Home() {
     return (
         <>
               <div className="buttons">

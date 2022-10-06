@@ -113,19 +113,4 @@ function App() {
   )
   }
 
-  // return()
-    // <Routes>
-    //   <Route path="/" element={<Home onClickCheckout={onClickCheckout} />} />
-    //   <Route path="/checkout" element={<CheckOut />} />
-    //   <Route path="/rentals" element={<RentalsPage />} />
-    //   <Route path="/customers" element={<CustomersPage />} />
-    // </Routes>
-    // const navigate = useNavigate();
-
-  // const onClickCheckout = () => {
-  //   navigate('/checkout')
-    
-    
- 
-
 export default App;

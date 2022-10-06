@@ -3,11 +3,12 @@ import "./Opener.css"
 import { Link } from "react-router-dom";
 
 function Opener() {
-
-    function handleHomePageClick() {
-
+    const navigate = useNavigate()
+    const handleHomePageClick = () => {
+        console.log("hello")
+        navigate("/home")
     }
-
+            
     return (
     <div onClick={handleHomePageClick} class="container-fluid">
         <p className="font">

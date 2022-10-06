@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
+import NavBar from '../NavBar'
 import CustomersForm from './CustomersForm'
-import CustomersList from './CustomersList'
+import CustomersContainer from './CustomersContainer'
 import CustomersModalDelete from './CustomersModalDelete'
 import CustomersModalEdit from './CustomersModalEdit'
 
@@ -15,7 +16,13 @@ function CustomersPage () {
    useEffect(() => {
       fetch("http://localhost:9292/customers")
       .then(r => r.json())
-      .then(res => setCustomers(res.data))
+      .then(res => {
+         const customersData = res.data.map(customer => {
+            customer.join_date = new Date(Date.parse(customer.join_date))
+            return customer
+         })
+         setCustomers(customersData)
+      })
    }, [])
 
    function deleteSelectedCustomer () {
@@ -44,7 +51,11 @@ function CustomersPage () {
    }
 
    function handleNewCustomer (customer) {
-      setCustomers([...customers, customer])
+      const newJoinDate = new Date(Date.parse(customer.join_date))
+      const newCustomer = {...customer,
+         join_date: newJoinDate
+      }
+      setCustomers([...customers, newCustomer])
    }
 
    function hideModal () {
@@ -90,8 +101,9 @@ function CustomersPage () {
    
    return (
       <Container>
+         <NavBar />
          <CustomersForm onNewAdd={handleNewCustomer} />
-         <CustomersList customers={customers}
+         <CustomersContainer customers={customers}
             onClickEdit={handleEditCustomer}
             onClickDelete={handleClickDelete} />
 
