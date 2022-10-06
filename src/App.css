@@ -1,31 +1,48 @@
 html, #root {
-  background-color: #0E40A9;
+  background-color: #FFA904;
 }
 
 #root > .container {
-  background-color: #FFA904;
+  background-color: #d0d2d6;
   height: 100vh;
   display: block;
+  margin: auto;
+  padding: 0;
 }
 
 #header {
   text-align: center;
-  height: 15%;
-  min-height: 100px;
+  height: 20%;
+  min-height: 200px;
+  display: block;
+  background-color: #0E40A9;
 }
 
 #header h1 {
   font-family: 'Staatliches', cursive;
   font-size: 100px;
+  color: #FFA904;
 }
 
-#header > .container {
-  align-items: center;
-  justify-content: center;
+#header button {
+  background-color: #d0d2d6;
+}
+
+#header button.active, #header button:active {
+  background-color: #FFA904;
 }
 
 .page-container {
   overflow-y: scroll;
+  height: 70%;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  min-height: 10%;
+  text-align: center;
+  padding-top: 3rem;
 }
 
 .card {
