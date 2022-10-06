@@ -2,7 +2,7 @@ import "./App.css"
 import React from 'react';
 import Opener from './Opener';
 import CheckOut from './CheckOut';
-import RentalsPage from './components/RentalsPage'
+import RentalsPage from './RentalsPage'
 import CustomersPage from "./components/customers/CustomersPage";
 import Home from './Home';
 import { 
