@@ -70,7 +70,6 @@ function MovieDetails ({ selectedMovie }) {
                 <DropdownButton id="dropdown-basic-button" title={selectedCustomer ? `${selectedCustomer.first_name} ${selectedCustomer.last_name}` : "Select Customer"} >
                     {customers}
                 </DropdownButton>
-                <br></br>
                 <Button variant='primary' onClick={checkOutMovie} disabled={selectedCustomer ? false : true}>Check-Out</Button>
             </div>
         </>

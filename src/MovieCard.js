@@ -12,7 +12,7 @@ function MovieCard ({ movie, onClickMovie }) {
     }
 
     return (
-        <Card className="bg-dark text-white" value={movie.id} style={{display: "inline-grid", maxWidth: '200px'}} onClick={handleClick}>
+        <Card className='my-auto' value={movie.id} style={{display: "inline-grid", maxWidth: '200px', backgroundColor: 'rgba(0,0,0,0)'}} onClick={handleClick}>
       <Card.Img src={image_url} />
     </Card>
   );

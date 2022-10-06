@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import MovieCard from './MovieCard';
 import SearchBar from './SearchBar';
 import MovieDetails from './MovieDetails';
@@ -42,9 +42,9 @@ function CheckOut () {
             <br></br>
             <SearchBar setSearchTerm={setSearchTerm} />
             <br></br>
-            <div className='card-container'>
+            <Container className='card-container' style={{height: '300px'}}>
                 {movies}
-            </div>
+            </Container>
             <div className='details'>
                 <MovieDetails selectedMovie={selectedMovie} />
             </div>
