@@ -1,9 +1,12 @@
 import React from 'react'
+import { Container } from 'react-bootstrap'
 import NavBar from './NavBar'
 
 function Header() {
    return (
-      <NavBar />
+      <Container>
+         <NavBar />
+      </Container>
    )
 }
 
