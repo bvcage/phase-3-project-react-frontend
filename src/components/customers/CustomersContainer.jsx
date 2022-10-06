@@ -19,7 +19,7 @@ function CustomersContainer (props) {
    // create cards for each customer
    const customerCards = customers.map(customer => {
       return (
-         <Col key={customer.id}>
+         <Col key={customer.id} xs="auto">
             <CustomersCard
                customer={customer}
                showDetailsFor={showDetailsFor}
