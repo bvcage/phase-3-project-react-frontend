@@ -1,12 +1,13 @@
 import "../../App.css"
-import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
-import React, { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
+import React, { useState, useEffect } from "react"
+import { Container, Form } from "react-bootstrap"
 
 function RentalsPage () {
 
     const [rentalsArr, setRentalsArr] = useState([])
+    const [searchTerm, setSearchTerm] = useState('')
 
     useEffect(() => {
         getRentals()
@@ -56,7 +57,30 @@ function RentalsPage () {
         })
     }
 
-    const rentals = rentalsArr.map((rental) => {
+    function handleSearch (e) {
+        setSearchTerm(e.target.value)
+    }
+
+    const searchBar = (
+        <Form>
+            <Form.Control
+                type="text"
+                placeholder="search..."
+                value={searchTerm}
+                onChange={handleSearch} />
+        </Form>
+    )
+
+    // filter array based on search terms
+    const matches = rentalsArr.filter(rental => {
+        if (rental.customer.first_name.toLowerCase().includes(searchTerm.toLowerCase())) { return true }
+        if (rental.customer.last_name.toLowerCase().includes(searchTerm.toLowerCase())) { return true }
+        if (rental.movie.title.toLowerCase().includes(searchTerm.toLowerCase())) { return true }
+        return false
+    })
+
+    // generate table for rentals matching search terms
+    const rentals = matches.map((rental) => {
         rental.rental.checkout_date = new Date(Date.parse(rental.rental.checkout_date))
         rental.rental.due_date = new Date(Date.parse(rental.rental.due_date))
         return (
@@ -82,6 +106,9 @@ function RentalsPage () {
 
     return (
         <Container id="rentals-page" className="page-container">
+            <Container style={{width: "80%"}}>
+                {searchBar}
+            </Container>
             <Table striped hover style={{ minWidth:"960" }}>
                 <thead>
                     <tr>
