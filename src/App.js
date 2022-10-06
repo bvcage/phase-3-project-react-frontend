@@ -10,6 +10,7 @@ import CustomersPage from './components/customers/CustomersPage';
 import CheckOut from './CheckOut';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import CheckinPage from './components/reviews/CheckinPage';
 
 // const router = createBrowserRouter([
 //   {
@@ -41,6 +42,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Opener />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/checkin" element={<CheckinPage />} />
         <Route path="/checkout" element={<CheckOut />} />
         <Route path="/rentals" element={<RentalsPage />} />
         <Route path="/customers" element={<CustomersPage />} />
