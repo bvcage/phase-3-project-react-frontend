@@ -5,7 +5,7 @@ import { Routes, Route, useNavigate, Link, createBrowserRouter } from 'react-rou
 import './App.css';
 import { Container } from 'react-bootstrap'
 
-import RentalsPage from './components/RentalsPage';
+import RentalsPage from './components/rentals/RentalsPage';
 import CustomersPage from './components/customers/CustomersPage';
 import CheckOut from './CheckOut';
 import Header from './components/Header';

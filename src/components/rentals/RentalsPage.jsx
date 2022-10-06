@@ -1,7 +1,7 @@
-import "../App.css"
+import "../../App.css"
 import React, { useState, useEffect } from "react"
 import { Container, Row, Col, Card, Button } from "react-bootstrap"
-import NavBar from "./NavBar"
+import NavBar from "../NavBar"
 
 function RentalsPage () {
 
