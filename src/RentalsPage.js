@@ -54,10 +54,10 @@ function CurrentRentals() {
         rental.rental.checkout_date = new Date(Date.parse(rental.rental.checkout_date))
         rental.rental.due_date = new Date(Date.parse(rental.rental.due_date))
         return (
-                <tr>
+                <tr key={rental.rental.id}>
                     <td>{rental.customer.first_name}</td>
                     <td>{rental.customer.last_name}</td>
-                    <td tdStyle={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>{rental.movie.title}</td>
+                    <td tdstyle={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>{rental.movie.title}</td>
                     <td>{(rental.rental.checkout_date).toLocaleDateString()}</td>
                     <td>{(rental.rental.due_date).toLocaleDateString()}</td>
                     <td>
