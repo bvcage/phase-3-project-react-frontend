@@ -8,6 +8,8 @@ import { Container } from 'react-bootstrap'
 import RentalsPage from './components/RentalsPage';
 import CustomersPage from './components/customers/CustomersPage';
 import CheckOut from './CheckOut';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 // const router = createBrowserRouter([
 //   {
@@ -35,6 +37,7 @@ function App() {
 
   return (
     <Container className="p-0 m-auto">
+      <Header />
       <Routes>
         <Route path="/" element={<Opener />} />
         <Route path="/home" element={<Home />} />
@@ -42,6 +45,7 @@ function App() {
         <Route path="/rentals" element={<RentalsPage />} />
         <Route path="/customers" element={<CustomersPage />} />
       </Routes>
+      <Footer />
     </Container>
   );
 }
