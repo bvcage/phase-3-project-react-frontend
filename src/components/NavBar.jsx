@@ -29,6 +29,12 @@ function NavBar() {
             active={path === "/customers"}>
                Customers
          </Button>
+         <Button
+            variant={btnVariant}
+            onClick={() => navigate("/home")}
+            active={path === "/home"}>
+               Home
+         </Button>
       </Container>
    );
 }

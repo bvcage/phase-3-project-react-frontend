@@ -1,8 +1,11 @@
-# Getting Started with Create React App
+Brickbuster . . 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Its like Blockbuster but without the funny smells! Fast Customer service and our tapes are always rewound just for you!
 
-## Available Scripts
+Our phase 3 project was to the take the Many to Many relationship and display it with a front end website. We utilized Ruby Active Record Tables to create the database and then used Instance Methods to pull the filter functions throught!
+
+Here you can check out the list of available films, search by Genre or Title.
+You can also see the Due Dates on the movies you have rented! Checkout or Checkin all in one stop, no waiting in long lines!
 
 In the project directory, you can run:
 

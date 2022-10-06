@@ -1,49 +1,116 @@
+import "./App.css"
+import React from 'react';
 import Opener from './Opener';
-import Home from './Home';
-import React from "react";
-import { Routes, Route, useNavigate, Link, createBrowserRouter } from 'react-router-dom';
-import './App.css';
-import { Container } from 'react-bootstrap'
-
-import RentalsPage from './components/RentalsPage';
-import CustomersPage from './components/customers/CustomersPage';
 import CheckOut from './CheckOut';
-
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: (
-//       <div>
-//         <h1>Hello World</h1>
-//         <Link to="about">About Us</Link>
-//       </div>
-//     ),
-//   },
-//   {
-//     path: "about",
-//     element: <div>About</div>,
-//   },
-// ]);
+import RentalsPage from './components/RentalsPage'
+import CustomersPage from "./components/customers/CustomersPage";
+import Home from './Home';
+import { 
+  createBrowserRouter,
+  Routes,
+  Route,
+  RouterProvider,
+  Link,
+  // Routes,
+  useNavigate } from 'react-router-dom';
+import './App.css';
 
 function App() {
 
-  const navigate = useNavigate();
-
-  const onClickCheckout = () => {
-    navigate('/checkout')
-  }
-
   return (
-    <Container>
-      <Routes>
-        <Route path="/" element={<Opener />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/checkout" element={<CheckOut />} />
-        <Route path="/rentals" element={<RentalsPage />} />
-        <Route path="/customers" element={<CustomersPage />} />
-      </Routes>
-    </Container>
-  );
-}
+<div className='Appz'>
+  <Routes>
+    <Route 
+      path="/"
+      element={
+        <>
+          <Opener />
+        </>
+       }
+    />
+    <Route
+      path="/home"
+      element={
+        <>
+          <Home />
+        </>
+      }
+    />
+    <Route
+      path="/checkout"
+      element={
+        <>
+          <CheckOut />
+        </>
+      }
+    />
+    <Route
+      path="/rentals"
+      element={
+        <>
+          <RentalsPage />
+        </>
+      }
+    />
+    <Route
+      path="/customers"
+      element={
+        <>
+          <CustomersPage />
+        </>
+      }
+    />
+    {/* {
+      path: "/home",
+      element: (
+        <>  
+          <Home />
+          <Link to="checkout">Checkout</Link>
+          <Link to="rentals">Rentals</Link>
+          <Link to="customers">Customers</Link>
+          <div>welcome Home</div>,
+        </>
+      ),
+    },
+    {
+      path: "/checkout",
+      element: (
+        <>  
+          <CheckOut />
+          <Link to="home">Home</Link>
+          <Link to="rentals">Rentals</Link>
+          <Link to="customers">Customers</Link>
+          <div>Checkout</div>,
+        </>
+      ),
+    },
+    {
+      path: "/rentals",
+      element: (
+        <>
+          <Rentals />
+          <Link to="home">Home</Link>
+          <Link to="checkout">Checkout</Link>
+          <Link to="customers">Customers</Link>
+          <div>Rental</div>,
+        </>
+      ),
+    },
+    {
+      path: "/customers",
+      element: (
+        <>
+          <Customers />
+          <Link to="home">Home</Link>
+          <Link to="checkout">Checkout</Link>
+          <Link to="rentals">Rentals</Link>
+          <div>Customers</div>,
+        </>
+      ),
+    }, */}
+    </Routes>
+</div>
+  )
+  }
 
 export default App;
