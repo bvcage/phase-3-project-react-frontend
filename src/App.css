@@ -43,6 +43,22 @@ html, #root {
   height: 70%;
 }
 
+.page-container button.btn-primary {
+  background-color: #0E40A9;
+  border-color: #0E40A9;
+}
+
+.page-container button.btn-primary:hover {
+  background-color: #FFA904;
+  border-color: #FFA904;
+  color: #434446;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #9faaca;
+  transition: ease .1s;
+}
+
 #footer {
   position: fixed;
   bottom: 0;
@@ -50,6 +66,8 @@ html, #root {
   text-align: center;
   padding-top: 3rem;
 }
+
+
 
 .card {
   flex-shrink: 0;
