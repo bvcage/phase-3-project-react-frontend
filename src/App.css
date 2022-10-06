@@ -33,6 +33,7 @@ html, #root {
 }
 
 .page-container {
+  padding-top: 1rem;
   overflow-y: scroll;
   height: 70%;
 }
