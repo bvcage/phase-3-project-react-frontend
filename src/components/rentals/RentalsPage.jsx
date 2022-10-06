@@ -70,7 +70,7 @@ function RentalsPage () {
                 </td>
             </tr>
         )
-})
+    })
 
     return (
         <Container id="rentals-page" className="page-container">
