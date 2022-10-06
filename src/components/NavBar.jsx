@@ -10,7 +10,7 @@ function NavBar() {
    const btnVariant = "outline-secondary"
 
    return (
-      <Container className="p-0">
+      <Container className="p-0" style={{position: "absolute", bottom: "0px"}} >
          <Button
             variant={btnVariant}
             onClick={() => navigate("/checkout")}
