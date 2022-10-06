@@ -22,7 +22,7 @@ function Cardz( props ) {
     return(
         <div className="card">
             <div className="card_body">
-                <img src={props.img}/>
+                <img src={props.img} alt="alt"/>
                 <h2 className="card_title">{props.title}</h2>
                 <p className="card_description">{props.description}</p>
                 <button className="card_btn">{props.title}</button>
