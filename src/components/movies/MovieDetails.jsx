@@ -2,13 +2,14 @@ import "../../App.css"
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row"
 import Card from 'react-bootstrap/Card';
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import CheckOutModal from "./CheckOutModal";
 
-function MovieDetails ({ selectedMovie }) {
+function MovieDetails ({ selectedMovie, setSelectedMovie }) {
 
     const [customersArr, setCustomersArr] = useState([])
     const [selectedCustomer, setSelectedCustomer] = useState()
@@ -59,13 +60,21 @@ function MovieDetails ({ selectedMovie }) {
     const showModal = (
         <CheckOutModal smShow={smShow} setSmShow={setSmShow}  />
     )
+
+    const returnToMovies = () => {
+        setSelectedMovie(false)
+    }
         
     return (
         <Container>
-            <Card style={{ width: '18rem', display: 'flex'}}>
+            <Row>
+            <Col xs='auto' style={{textAlign: 'center'}}>
+            <Card style={{display: 'flex'}}>
                 <Card.Img variant="top" src={image_url} />
             </Card>
-            <div className='details-info'>
+            <Button className='m-2' size='lg' onClick={returnToMovies}>Return to Movies</Button>
+            </Col>
+            <Col>
                 <h2>{title}</h2>
                 <h5>{year}</h5>
                 <p>{plot}</p>
@@ -75,7 +84,8 @@ function MovieDetails ({ selectedMovie }) {
                 <br></br>
                 <Button variant='primary' onClick={checkOutMovie} disabled={selectedCustomer ? false : true}>Check-Out</Button>
                 {smShow ? showModal : null}
-            </div>
+            </Col>
+            </Row>
         </Container>
     )
 }

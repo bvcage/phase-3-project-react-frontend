@@ -79,7 +79,6 @@ html, #root {
   flex-shrink: 0;
   width: 300px;
   /* height: 200px; */
-  margin-left: 20px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -96,8 +95,7 @@ html, #root {
 
 .card-container {
   margin-left: 25px;
-  display: flex;
-  overflow-x: scroll;
+  text-align: center;
   width: 97%;
 }
 
@@ -141,3 +139,8 @@ html, #root {
   align-content: center;
 }
 
+.header{
+  background-color: white;
+  position:sticky;
+  top: 0 ;
+}
