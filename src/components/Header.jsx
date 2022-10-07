@@ -6,7 +6,7 @@ import NavBar from './NavBar'
 function Header() {
    return (
       <Container id="header">
-         <h1>BLOCKBUSTER</h1>
+         <h1>BRICKBUSTER</h1>
          <NavBar />
       </Container>
    )
