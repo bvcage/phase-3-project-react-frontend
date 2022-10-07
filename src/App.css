@@ -40,7 +40,7 @@ html, #root {
 .page-container {
   padding-top: 1rem;
   overflow-y: scroll;
-  height: 70%;
+  height: 65%;
 }
 
 .page-container button.btn-primary {
@@ -54,6 +54,12 @@ html, #root {
   color: #434446;
 }
 
+.table-hover thead {
+  background-color: #9faaca;
+  position: sticky;
+  top: 0px;
+}
+
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: #9faaca;
   transition: ease .1s;
@@ -62,7 +68,7 @@ html, #root {
 #footer {
   position: fixed;
   bottom: 0;
-  min-height: 10%;
+  height: 10%;
   text-align: center;
   padding-top: 3rem;
 }
