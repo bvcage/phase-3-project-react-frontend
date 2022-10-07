@@ -1,28 +1,32 @@
 import "../../App.css"
-import Button from 'react-bootstrap/Button'
-import Table from 'react-bootstrap/Table'
-import React, { useState, useEffect } from "react"
-import { Container, Form } from "react-bootstrap"
+import React, { useEffect, useState } from "react"
+import RentalsContainer from "./RentalsContainer"
+import ReviewsForm from "../reviews/ReviewsForm"
+import { Button, Modal } from "react-bootstrap"
 
 function RentalsPage () {
 
     const [rentalsArr, setRentalsArr] = useState([])
-    const [searchTerm, setSearchTerm] = useState('')
+    const [selectedRental, setSelectedRental] = useState()
+    const [showPrompt, setShowPrompt] = useState(false)
+    const [showForm, setShowForm] = useState(false)
 
     useEffect(() => {
-        getRentals()
+        fetch("http://localhost:9292/rentals/out")
+            .then(r => r.json())
+            .then(api => setRentalsArr(api.data))
     }, [])
 
-    function getRentals() {
-        fetch("http://localhost:9292/rentals/out")
-            .then(resp => resp.json())
-            .then((data) => setRentalsArr(data.data))
-    }
-
-    function checkinSelectedRental(rental) {
-        const checkInDate = new Date();
+    function handleCheckIn (id) {
+        // get & set rental info
+        const rental = rentalsArr.find(rental => rental.rental.id === id)
+        setSelectedRental(rental)
+        // prompt user for review
+        setShowPrompt(true)
+        // checkin rental
+        const checkInDate = new Date()
         checkInDate.setTime(Date.now())
-        fetch(`http://localhost:9292/rentals/${rental.id}/edit`, {
+        fetch(`http://localhost:9292/rentals/${id}/edit`, {
             method: 'PATCH',
             headers: {
                 "Content-Type": "application/json",
@@ -36,97 +40,70 @@ function RentalsPage () {
         })
     }
 
-    function editSelectedRental(rental) {
+    function handleExtend (rental) {
+        const oldDueDate = rental.due_date
+        const newDueDate = new Date()
+        newDueDate.setTime(oldDueDate.getTime() + 2 * (24 * 60 * 60 * 1000) )
 
-        const oldCheckoutDate = rental.rental.due_date
-        const newCheckoutDate = new Date()
-        newCheckoutDate.setTime(oldCheckoutDate.getTime() + 2 * (24 * 60 * 60 * 1000) )
-
-        fetch(`http://localhost:9292/rentals/${rental.rental.id}/edit`, {
+        fetch(`http://localhost:9292/rentals/${rental.id}/edit`, {
             method: 'PATCH',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ due_date: newCheckoutDate })
-        }).then((resp) => {
-            resp.json().then((resp) => {
-                console.warn(resp)
-                getRentals()
+            body: JSON.stringify({ due_date: newDueDate })
+        }).then(r=>r.json()).then(api=>{
+            const extended = api.data
+            const updatedArr = rentalsArr.map(rental => {
+                if (rental.rental.id === extended.id) { return {...rental, rental: extended} }
+                return rental
             })
+            setRentalsArr(updatedArr)
         })
     }
 
-    function handleSearch (e) {
-        setSearchTerm(e.target.value)
+    function hideForm () {
+        setShowForm(false)
     }
 
-    const searchBar = (
-        <Form className="m-3">
-            <Form.Control
-                type="text"
-                placeholder="search..."
-                value={searchTerm}
-                onChange={handleSearch} />
-        </Form>
-    )
+    function hidePrompt () {
+        setShowPrompt(false)
+    }
 
-    // filter array based on search terms
-    const matches = rentalsArr.filter(rental => {
-        if (rental.customer.first_name.toLowerCase().includes(searchTerm.toLowerCase())) { return true }
-        if (rental.customer.last_name.toLowerCase().includes(searchTerm.toLowerCase())) { return true }
-        if (rental.movie.title.toLowerCase().includes(searchTerm.toLowerCase())) { return true }
-        return false
-    })
+    function onClickYes () {
+        hidePrompt()
+        setShowForm(true)
+    }
 
-    // generate table for rentals matching search terms
-    const rentals = matches.map((rental) => {
-        rental.rental.checkout_date = new Date(Date.parse(rental.rental.checkout_date))
-        rental.rental.due_date = new Date(Date.parse(rental.rental.due_date))
-        return (
-            <tr key={rental.rental.id}>
-                <td>{rental.customer.first_name}</td>
-                <td>{rental.customer.last_name}</td>
-                <td tdstyle={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>{rental.movie.title}</td>
-                <td>{(rental.rental.checkout_date).toLocaleDateString()}</td>
-                <td>{(rental.rental.due_date).toLocaleDateString()}</td>
-                <td width="220px">
-                    <div style={{float: 'right'}}>
-                        <Button onClick={() => editSelectedRental(rental)}>
-                            Extend
-                        </Button>
-                        <Button onClick={() => checkinSelectedRental(rental.rental)} className="Delete ms-2" >
-                            Check-In
-                        </Button>
-                    </div>
-                </td>
-            </tr>
-        )
-    })
+    const reviewPromptModal = !!selectedRental ? (
+        <Modal show={showPrompt} onHide={hidePrompt}>
+            <Modal.Header>Customer Review</Modal.Header>
+            <Modal.Header>Does {selectedRental.customer.first_name} want to review {selectedRental.movie.title}?</Modal.Header>
+            <Modal.Footer>
+                <Button
+                    variant='success'
+                    style={{width: '100px'}}
+                    onClick={onClickYes}>
+                        Yes
+                </Button>
+                <Button
+                    variant='danger'
+                    style={{width: '100px'}}
+                    onClick={hidePrompt}>
+                        No
+                </Button>
+            </Modal.Footer>
+        </Modal>
+    ) : null
 
     return (<>
-        <Container style={{width: "80%"}}>
-            {searchBar}
-        </Container>
-        <Container id="rentals-page" className="page-container" style={{paddingTop: '0px'}}>
-            <Table striped hover style={{ minWidth:"960" }}>
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Title</th>
-                        <th>Checkout Date</th>
-                        <th>Due Date</th>
-                        <th style={{textAlign: 'right'}}>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {rentals}
-                </tbody>
-            </Table>
-        </Container>
+        { showForm ?
+            <ReviewsForm rental={selectedRental} onComplete={hideForm} />
+            :
+            <RentalsContainer rentalsArr={rentalsArr} onClickCheckIn={handleCheckIn} onClickExtend={handleExtend} />
+        }
+        {reviewPromptModal}
     </>)
-
 }
 
 export default RentalsPage;
