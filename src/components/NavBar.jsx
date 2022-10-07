@@ -17,8 +17,8 @@ function NavBar() {
             variant={btnVariant}
             size={btnSize}
             className={btnClass}
-            onClick={() => navigate("/home")}
-            active={path === "/home"}>
+            onClick={() => navigate("/")}
+            active={path === "/"}>
                Home
          </Button>
          <Button

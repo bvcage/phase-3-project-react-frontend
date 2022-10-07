@@ -15,8 +15,7 @@ function App() {
     <Container>
       <Header />
       <Routes>
-        <Route path="/" element={<Opener />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/checkout" element={<CheckOut />} />
         <Route path="/rentals" element={<RentalsPage />} />
         <Route path="/customers" element={<CustomersPage />} />
