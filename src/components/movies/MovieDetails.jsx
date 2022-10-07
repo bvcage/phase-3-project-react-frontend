@@ -54,8 +54,6 @@ function MovieDetails ({ selectedMovie, setSelectedMovie }) {
             <Dropdown.Item key={customer.id} onClick={handleClickTest}>{customer.first_name} {customer.last_name}</Dropdown.Item>
         )
     })
-        
-        console.log(selectedCustomer)
 
     const showModal = (
         <CheckOutModal smShow={smShow} setSmShow={setSmShow}  />
@@ -68,25 +66,25 @@ function MovieDetails ({ selectedMovie, setSelectedMovie }) {
     return (
         <Container>
             <Row>
-            <Col xs='auto' style={{textAlign: 'center'}}>
-            <Card style={{display: 'flex'}}>
-                <Card.Img variant="top" src={image_url} />
-            </Card>
-            <Button className='m-2' size='lg' onClick={returnToMovies}>Return to Movies</Button>
-            </Col>
-            <Col>
-                <h2>{title}</h2>
-                <h5>{year}</h5>
-                <p>{plot}</p>
-                <DropdownButton id="dropdown-basic-button" title={selectedCustomer ? `${selectedCustomer.first_name} ${selectedCustomer.last_name}` : "Select Customer"} >
-                <Container style={{overflowY: 'scroll', maxHeight: '200px', backgroundColor: 'white'}}>
-                    {customers}
-                    </Container>
-                </DropdownButton>
-                <br></br>
-                <Button variant='primary' onClick={checkOutMovie} disabled={selectedCustomer ? false : true}>Check-Out</Button>
-                {smShow ? showModal : null}
-            </Col>
+                <Col xs='auto' style={{textAlign: 'center'}}>
+                    <Card style={{display: 'flex'}}>
+                        <Card.Img variant="top" src={image_url} />
+                    </Card>
+                    <Button className='m-2' size='lg' onClick={returnToMovies}>Return to Movies</Button>
+                </Col>
+                <Col>
+                    <h2>{title}</h2>
+                    <h5>{year}</h5>
+                    <p>{plot}</p>
+                    <DropdownButton id="dropdown-basic-button" title={selectedCustomer ? `${selectedCustomer.first_name} ${selectedCustomer.last_name}` : "Select Customer"} >
+                        <Container style={{overflowY: 'scroll', maxHeight: '200px', backgroundColor: 'white'}}>
+                            {customers}
+                        </Container>
+                    </DropdownButton>
+                    <br></br>
+                    <Button variant='primary' onClick={checkOutMovie} disabled={selectedCustomer ? false : true}>Check-Out</Button>
+                    {smShow ? showModal : null}
+                </Col>
             </Row>
         </Container>
     )
