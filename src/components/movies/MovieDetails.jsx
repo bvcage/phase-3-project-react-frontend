@@ -8,12 +8,13 @@ import Card from 'react-bootstrap/Card';
 import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import CheckOutModal from "./CheckOutModal";
+import ReviewsContainer from "../reviews/ReviewsContainer";
 
 function MovieDetails ({ selectedMovie, setSelectedMovie }) {
 
     const [customersArr, setCustomersArr] = useState([])
     const [selectedCustomer, setSelectedCustomer] = useState()
-    const { image_url, plot, title, year } = selectedMovie
+    const { id, image_url, plot, title, year } = selectedMovie
     const [smShow, setSmShow] = useState(false);
 
     useEffect(() => {
@@ -73,17 +74,26 @@ function MovieDetails ({ selectedMovie, setSelectedMovie }) {
                     <Button className='m-2' size='lg' onClick={returnToMovies}>Return to Movies</Button>
                 </Col>
                 <Col>
-                    <h2>{title}</h2>
-                    <h5>{year}</h5>
-                    <p>{plot}</p>
-                    <DropdownButton id="dropdown-basic-button" title={selectedCustomer ? `${selectedCustomer.first_name} ${selectedCustomer.last_name}` : "Select Customer"} >
-                        <Container style={{overflowY: 'scroll', maxHeight: '200px', backgroundColor: 'white'}}>
-                            {customers}
-                        </Container>
-                    </DropdownButton>
-                    <br></br>
-                    <Button variant='primary' onClick={checkOutMovie} disabled={selectedCustomer ? false : true}>Check-Out</Button>
-                    {smShow ? showModal : null}
+                    <Row>
+                        <Col>
+                            <h2>{title}</h2>
+                            <h5>{year}</h5>
+                            <p>{plot}</p>
+                            <DropdownButton id="dropdown-basic-button" title={selectedCustomer ? `${selectedCustomer.first_name} ${selectedCustomer.last_name}` : "Select Customer"} >
+                                <Container style={{overflowY: 'scroll', maxHeight: '200px', backgroundColor: 'white'}}>
+                                    {customers}
+                                </Container>
+                            </DropdownButton>
+                            <br></br>
+                            <Button variant='primary' onClick={checkOutMovie} disabled={selectedCustomer ? false : true}>Check-Out</Button>
+                            {smShow ? showModal : null}
+                        </Col>
+                    </Row>
+                    <Row className="mt-4">
+                        <Col>
+                            <ReviewsContainer movie={id} />
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
         </Container>
