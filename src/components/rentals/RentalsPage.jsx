@@ -62,7 +62,7 @@ function RentalsPage () {
     }
 
     const searchBar = (
-        <Form>
+        <Form className="m-3">
             <Form.Control
                 type="text"
                 placeholder="search..."
@@ -104,11 +104,11 @@ function RentalsPage () {
         )
     })
 
-    return (
-        <Container id="rentals-page" className="page-container">
-            <Container style={{width: "80%"}}>
-                {searchBar}
-            </Container>
+    return (<>
+        <Container style={{width: "80%"}}>
+            {searchBar}
+        </Container>
+        <Container id="rentals-page" className="page-container" style={{paddingTop: '0px'}}>
             <Table striped hover style={{ minWidth:"960" }}>
                 <thead>
                     <tr>
@@ -125,7 +125,7 @@ function RentalsPage () {
                 </tbody>
             </Table>
         </Container>
-    )
+    </>)
 
 }
 
