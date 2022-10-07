@@ -9,10 +9,10 @@ $radius: 0.2rem;
     padding: 0;
 }
 
-body {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    margin: 2rem;
-}
+// body {
+//     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+//     margin: 2rem;
+// }
 
 .logo {
     font-size: 1in;
@@ -34,7 +34,7 @@ body {
     justify-content: center;
 }
 
-.card{
+.scss-card{
     overflow:hidden;
     box-shadow: 0 2px 20px;
     border-radius:$radius;
