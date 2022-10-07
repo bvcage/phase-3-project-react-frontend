@@ -3,13 +3,14 @@ import { Container } from 'react-bootstrap'
 import MovieCard from './MovieCard'
 import SearchBar from './SearchBar'
 import MovieDetails from './MovieDetails'
+import DetailsPlaceholder from './DetailsPlaceholder'
 import '../../App.css'
 
 
 function CheckOut () {
 
     const [moviesArr, setMoviesArr] = useState([])
-    const [selectedMovie, setSelectedMovie] = useState({})
+    const [selectedMovie, setSelectedMovie] = useState()
     const [searchTerm, setSearchTerm] = useState('')
     const [filterMovieList, setFilterMovieList] = useState([])
 
@@ -20,7 +21,7 @@ function CheckOut () {
    }, [])
 
    useEffect(() => {
-        setFilterMovieList(moviesArr.filter((movie) => movie.title.includes(searchTerm) || movie.genre.includes(searchTerm)))
+        setFilterMovieList(moviesArr.filter((movie) => movie.title.toLowerCase().includes(searchTerm.toLowerCase()) || movie.genre.includes(searchTerm)))
    }, [searchTerm])
 
 
@@ -36,16 +37,18 @@ function CheckOut () {
 
 
     return (
-        <Container id="checkout-page" className="page-container">
-            <SearchBar setSearchTerm={setSearchTerm} />
+        <>
+        <Container style={{paddingTop: '10px'}}>
+            <SearchBar setSearchTerm={setSearchTerm}/>
+        </Container>
+        <Container id="checkout-page" className="page-container" style={{height: '585px'}}>
             <br></br>
+            {selectedMovie ? <MovieDetails selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} /> :
             <Container className='card-container'>
                 {movies}
-            </Container>
-            <div className='details'>
-                <MovieDetails selectedMovie={selectedMovie} />
-            </div>
+            </Container>}
         </Container>
+        </>
     )
 };
 

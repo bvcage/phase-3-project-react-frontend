@@ -77,12 +77,12 @@ function RentalsPage () {
             <Table striped style={{ minWidth:"960" }}>
                 <thead>
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Title</th>
-                        <th>Checkout Date</th>
-                        <th>Due Date</th>
-                        <th>Actions</th>
+                        <th className="header" scope="col">First Name</th>
+                        <th className="header" scope="col">Last Name</th>
+                        <th className="header" scope="col">Title</th>
+                        <th className="header" scope="col">Checkout Date</th>
+                        <th className="header" scope="col">Due Date</th>
+                        <th className="header" scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
