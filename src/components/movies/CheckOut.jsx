@@ -40,7 +40,7 @@ function CheckOut () {
         <Container style={{paddingTop: '10px'}}>
             <SearchBar setSearchTerm={setSearchTerm}/>
         </Container>
-        <Container id="checkout-page" className="page-container">
+        <Container id="checkout-page" className="page-container" style={{overflow: 'hidden'}}>
             <br></br>
             {selectedMovie ? <MovieDetails selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} /> :
             <Container className='card-container'>
