@@ -3,7 +3,6 @@ import { Container } from 'react-bootstrap'
 import MovieCard from './MovieCard'
 import SearchBar from './SearchBar'
 import MovieDetails from './MovieDetails'
-import DetailsPlaceholder from './DetailsPlaceholder'
 import '../../App.css'
 
 

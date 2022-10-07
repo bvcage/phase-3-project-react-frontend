@@ -1,8 +1,6 @@
 import React from "react";
-// import NavBar from "../NavBar";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
-// import Cardz from "./Cardz";
 import './Home.scss'
 import checkout from "../../check-out.jpg"
 import rentals from "../../current-rentals.jpg"

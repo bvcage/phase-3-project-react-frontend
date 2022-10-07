@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
-import NavBar from '../NavBar'
 import CustomersForm from './CustomersForm'
 import CustomersContainer from './CustomersContainer'
 import CustomersModalDelete from './CustomersModalDelete'
