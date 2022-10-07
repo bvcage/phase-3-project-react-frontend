@@ -54,6 +54,11 @@ html, #root {
   color: #434446;
 }
 
+#input-group-dropdown-1 {
+  background-color: #0E40A9;
+  border-color: #0E40A9;
+}
+
 .table-hover thead {
   background-color: #9faaca;
   position: sticky;
@@ -71,6 +76,11 @@ html, #root {
   height: 50px;
   text-align: center;
   padding-top: 10px;
+}
+
+#footer a {
+  text-decoration: none;
+  color: #0E40A9;
 }
 
 #about {
