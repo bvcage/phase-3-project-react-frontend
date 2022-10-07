@@ -29,9 +29,9 @@ function CheckOut () {
        setSelectedMovie(movie);
    }
 
-    const movies = (filterMovieList.length ? filterMovieList : moviesArr)?.map((movie) => {
-    return (
-        <MovieCard movie={movie} key={movie.id} onClickMovie={handleClickMovie}/>
+    const movies = (searchTerm.length ? filterMovieList : moviesArr)?.map((movie) => {
+        return (
+            <MovieCard movie={movie} key={movie.id} onClickMovie={handleClickMovie}/>
         );
     });
 
@@ -41,7 +41,7 @@ function CheckOut () {
         <Container style={{paddingTop: '10px'}}>
             <SearchBar setSearchTerm={setSearchTerm}/>
         </Container>
-        <Container id="checkout-page" className="page-container" style={{height: '585px'}}>
+        <Container id="checkout-page" className="page-container">
             <br></br>
             {selectedMovie ? <MovieDetails selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} /> :
             <Container className='card-container'>
