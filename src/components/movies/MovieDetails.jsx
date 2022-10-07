@@ -79,7 +79,9 @@ function MovieDetails ({ selectedMovie, setSelectedMovie }) {
                 <h5>{year}</h5>
                 <p>{plot}</p>
                 <DropdownButton id="dropdown-basic-button" title={selectedCustomer ? `${selectedCustomer.first_name} ${selectedCustomer.last_name}` : "Select Customer"} >
+                <Container style={{overflowY: 'scroll', maxHeight: '200px', backgroundColor: 'white'}}>
                     {customers}
+                    </Container>
                 </DropdownButton>
                 <br></br>
                 <Button variant='primary' onClick={checkOutMovie} disabled={selectedCustomer ? false : true}>Check-Out</Button>

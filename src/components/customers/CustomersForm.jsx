@@ -58,7 +58,7 @@ function CustomersForm( props ) {
                type="button"
                onClick={handleShowForm}
                variant={ showForm ? "outline-secondary" : "primary"}>
-                  { showForm ? "cancel" : "new customer" }
+                  { showForm ? "Cancel" : "New Customer" }
             </Button>
          </Col>
       </Row>
@@ -68,8 +68,8 @@ function CustomersForm( props ) {
       <Row>
          <Col></Col>
          <Col xs="auto">
-            <Button type="reset" variant="secondary" className="ms-2" onClick={handleReset}>clear</Button>
-            <Button type="submit" variant="primary" className="ms-2">submit</Button>
+            <Button type="reset" variant="secondary" className="ms-2" onClick={handleReset}>Clear</Button>
+            <Button type="submit" variant="primary" className="ms-2">Submit</Button>
          </Col>
       </Row>
    )
