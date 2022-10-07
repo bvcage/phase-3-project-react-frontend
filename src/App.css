@@ -73,7 +73,11 @@ html, #root {
   padding-top: 10px;
 }
 
-
+#about {
+  background-color: white;
+  margin: 10px 0px;
+  padding: 20px 150px;
+}
 
 .card {
   flex-shrink: 0;
