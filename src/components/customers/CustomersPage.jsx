@@ -73,8 +73,11 @@ function CustomersPage () {
          body: JSON.stringify(editedCustomer)
       }).then(r => r.json())
       .then(res => {
+         const edit = {...res.data,
+            join_date: new Date(Date.parse(res.data.join_date))
+         }
          const updatedList = customers.map(customer => {
-            if (customer.id === editedCustomer.id) { return res.data }
+            if (customer.id === editedCustomer.id) { return edit }
             return customer
          })
          setCustomers(updatedList)
