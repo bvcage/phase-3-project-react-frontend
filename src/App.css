@@ -68,9 +68,9 @@ html, #root {
 #footer {
   position: fixed;
   bottom: 0;
-  height: 10%;
+  height: 50px;
   text-align: center;
-  padding-top: 3rem;
+  padding-top: 10px;
 }
 
 
