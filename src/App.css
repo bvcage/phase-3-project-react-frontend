@@ -38,9 +38,11 @@ html, #root {
 }
 
 .page-container {
+  position: relative;
   padding-top: 1rem;
-  overflow-y: scroll;
-  height: 65%;
+  overflow: hidden;
+  /* height = 100% of container minus header minus footer minus search bar */
+  height: calc(100% - max(20%, 200px) - 3.5rem); 
 }
 
 .page-container button.btn-primary {
@@ -54,9 +56,19 @@ html, #root {
   color: #434446;
 }
 
+div.search-bar {
+  padding-bottom: 1rem;
+}
+
 #input-group-dropdown-1 {
   background-color: #0E40A9;
   border-color: #0E40A9;
+}
+
+div.items-container {
+  height: calc(100% - 3.5rem);
+  overflow: scroll;
+  text-align: center;
 }
 
 .table-hover thead {
@@ -73,9 +85,9 @@ html, #root {
 #footer {
   position: fixed;
   bottom: 0;
-  height: 50px;
+  height: 3.5rem;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 1rem;
 }
 
 #footer a {
@@ -83,16 +95,11 @@ html, #root {
   color: #0E40A9;
 }
 
-#about {
-  background-color: white;
-  margin: 10px 0px;
-  padding: 20px 150px;
-}
+/* cards */
 
 .card {
   flex-shrink: 0;
   width: 300px;
-  /* height: 200px; */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -102,6 +109,29 @@ html, #root {
 .card:hover {
   transform: scale(1.05)
 }
+
+
+/* home page */
+#about {
+  background-color: white;
+  margin: 10px 0px;
+  padding: 20px 150px;
+}
+
+
+
+
+
+
+
+
+
+
+/* 
+
+
+
+
 
 .card-img {
   height: 250px;
@@ -157,4 +187,4 @@ html, #root {
   background-color: white;
   position:sticky;
   top: 0 ;
-}
+} */

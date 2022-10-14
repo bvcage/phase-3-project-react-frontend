@@ -6,7 +6,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 
-function SearchBar ({ setSearchTerm }) {
+function MoviesSearchBar ({ setSearchTerm }) {
     const [genresArr, setGenresArr] = useState([])
     const [genreLabel, setGenreLabel] = useState('')
 
@@ -38,8 +38,8 @@ function SearchBar ({ setSearchTerm }) {
 
 
     return (
-      <div className='search-bar'>
-        <InputGroup className="mb-3" style={{display: 'flex', justifyContent: 'center'}}>
+      <Container className='search-bar'>
+        <InputGroup style={{display: 'flex', justifyContent: 'center'}}>
           <DropdownButton
             variant="primary"
             title={genreLabel ? genreLabel : "Genre"}
@@ -57,8 +57,8 @@ function SearchBar ({ setSearchTerm }) {
             onClick={resetSearchTerm}
             />
         </InputGroup>
-      </div>
+      </Container>
     )
 }
 
-export default SearchBar;
+export default MoviesSearchBar;

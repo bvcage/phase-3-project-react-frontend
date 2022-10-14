@@ -65,7 +65,7 @@ function CustomersForm( props ) {
    )
 
    const submitFormButton = (
-      <Row>
+      <Row className="mb-3">
          <Col></Col>
          <Col xs="auto">
             <Button type="reset" variant="secondary" className="ms-2" onClick={handleReset}>Clear</Button>
@@ -133,7 +133,7 @@ function CustomersForm( props ) {
    )
    
    return (
-      <Container className="p-3">
+      <Container>
          { customerToEdit ? null : showHideFormButton }
          <Row>
             <Col>

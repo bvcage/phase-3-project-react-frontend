@@ -23,7 +23,7 @@ function RentalsContainer ( props ) {
 
    // search bar component
    const searchBar = (
-      <Form className="m-3">
+      <Form>
          <Form.Control
                type="text"
                placeholder="search..."
@@ -65,28 +65,30 @@ function RentalsContainer ( props ) {
       )
    })
 
-   return (<>
-      <Container style={{width: "80%"}}>
-         {searchBar}
+   return (
+      <Container className='page-container'>
+         <Container className='search-bar'>
+            {searchBar}
+         </Container>
+         <Container className='items-container'>
+            <Table striped hover style={{ minWidth:"960" }}>
+                  <thead>
+                     <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Title</th>
+                        <th>Checkout Date</th>
+                        <th>Due Date</th>
+                        <th style={{textAlign: 'right'}}>Actions</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     {rentals}
+                  </tbody>
+            </Table>
+         </Container>
       </Container>
-      <Container id="rentals-page" className="page-container" style={{paddingTop: '0px'}}>
-         <Table striped hover style={{ minWidth:"960" }}>
-               <thead>
-                  <tr>
-                     <th>First Name</th>
-                     <th>Last Name</th>
-                     <th>Title</th>
-                     <th>Checkout Date</th>
-                     <th>Due Date</th>
-                     <th style={{textAlign: 'right'}}>Actions</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  {rentals}
-               </tbody>
-         </Table>
-      </Container>
-   </>)
+   )
 
 }
 

@@ -31,7 +31,7 @@ function CustomersContainer (props) {
    })
 
    return (
-      <Container fluid className="p-3">
+      <Container className="items-container">
          <Row className="g-3">
             {customerCards}
          </Row>

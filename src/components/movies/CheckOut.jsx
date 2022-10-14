@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import MovieCard from './MovieCard'
-import SearchBar from './SearchBar'
+import MoviesSearchBar from './MoviesSearchBar'
 import MovieDetails from './MovieDetails'
 import '../../App.css'
 
@@ -36,18 +36,16 @@ function CheckOut () {
 
 
     return (
-        <>
-        <Container style={{paddingTop: '10px'}}>
-            <SearchBar setSearchTerm={setSearchTerm}/>
+        <Container className='page-container'>
+            <MoviesSearchBar setSearchTerm={setSearchTerm}/>
+            {selectedMovie ?
+                <MovieDetails selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} />
+            :
+                <Container className='items-container'>
+                    {movies}
+                </Container>
+            }
         </Container>
-        <Container id="checkout-page" className="page-container" style={{overflow: 'hidden'}}>
-            <br></br>
-            {selectedMovie ? <MovieDetails selectedMovie={selectedMovie} setSelectedMovie={setSelectedMovie} /> :
-            <Container className='card-container'>
-                {movies}
-            </Container>}
-        </Container>
-        </>
     )
 };
 
