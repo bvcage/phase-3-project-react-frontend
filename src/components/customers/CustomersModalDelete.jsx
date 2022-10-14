@@ -13,7 +13,7 @@ function CustomersModalDelete (props) {
          <Modal.Header closeButton>
             <Modal.Title>Delete Customer</Modal.Title>
          </Modal.Header>
-         <Modal.Body>{`Are you sure you want to delete ${first_name} ${last_name} [id#${id}]?`}</Modal.Body>
+         <Modal.Body>{`Are you sure you want to delete ${first_name} ${last_name}?`}</Modal.Body>
          <Modal.Footer>
             <Button variant="danger" onClick={handleClickDelete}>DELETE</Button>
             <Button variant="outline-secondary" onClick={hideModal}>cancel</Button>
