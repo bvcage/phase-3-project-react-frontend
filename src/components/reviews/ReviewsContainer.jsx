@@ -22,10 +22,10 @@ function ReviewsContainer (props) {
    })
    
    return (
-      <Container>
+      <Container className='mt-3' style={{maxHeight: '100%'}}>
          <h3>Reviews</h3>
-         <Container style={{height: '300px', overflowY: 'scroll'}}>
-         { reviews.length > 0 ? reviewCards : "no reviews available :("}
+         <Container className='items-container' style={{maxHeight: 'calc(100% - 6.5rem'}}>
+            { reviews.length > 0 ? reviewCards : "no reviews available :("}
          </Container>
       </Container>
    )
