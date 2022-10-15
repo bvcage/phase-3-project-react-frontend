@@ -25,8 +25,16 @@ function NavBar() {
             variant={btnVariant}
             className={btnClass}
             size={btnSize}
-            onClick={() => navigate("/checkout")}
-            active={path === "/checkout"}>
+            onClick={() => navigate("/inventory")}
+            active={path === "/inventory"}>
+               Inventory
+         </Button>
+         <Button
+            variant={btnVariant}
+            className={btnClass}
+            size={btnSize}
+            onClick={() => navigate("/movies")}
+            active={path === "/movies"}>
                Check-Out
          </Button>
          <Button
