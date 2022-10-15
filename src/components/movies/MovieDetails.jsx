@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row"
 import Card from 'react-bootstrap/Card';
 import { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Stack } from "react-bootstrap";
 import CheckOutModal from "./CheckOutModal";
 import ReviewsContainer from "../reviews/ReviewsContainer";
 
@@ -65,34 +65,32 @@ function MovieDetails ({ selectedMovie, setSelectedMovie }) {
     }
         
     return (
-        <Container>
-            <Row>
-                <Col xs='auto' style={{textAlign: 'center'}}>
+        <Container className='details-container'>
+            <Row style={{height: '100%', position: 'relative'}}>
+                <Col xs='auto' style={{textAlign: 'center', height: '100%'}}>
                     <Card style={{display: 'flex'}}>
                         <Card.Img variant="top" src={image_url} />
                     </Card>
                     <Button className='m-2' size='lg' onClick={returnToMovies}>Return to Movies</Button>
                 </Col>
-                <Col>
-                    <Row>
-                        <Col>
+                <Col style={{height: '100%', position: 'relative'}}>
+                    <Row style={{height: 'auto'}}>
+                        <Container>
                             <h2>{title}</h2>
                             <h5>{year}</h5>
                             <p>{plot}</p>
-                            <DropdownButton id="dropdown-basic-button" title={selectedCustomer ? `${selectedCustomer.first_name} ${selectedCustomer.last_name}` : "Select Customer"} >
+                            {/* <DropdownButton id="dropdown-basic-button" title={selectedCustomer ? `${selectedCustomer.first_name} ${selectedCustomer.last_name}` : "Select Customer"} >
                                 <Container style={{overflowY: 'scroll', maxHeight: '200px', backgroundColor: 'white'}}>
                                     {customers}
                                 </Container>
-                            </DropdownButton>
-                            <br></br>
+                            </DropdownButton> */}
+                            <br />
                             <Button variant='primary' onClick={checkOutMovie} disabled={selectedCustomer ? false : true}>Check-Out</Button>
                             {smShow ? showModal : null}
-                        </Col>
+                        </Container>
                     </Row>
-                    <Row className="mt-4">
-                        <Col>
-                            <ReviewsContainer movie={id} />
-                        </Col>
+                    <Row style={{maxHeight: '100%', overflow: 'hidden'}}>
+                        <ReviewsContainer movie={id} />
                     </Row>
                 </Col>
             </Row>
