@@ -38,6 +38,7 @@ html, #root {
 }
 
 .page-container {
+  display: block;
   position: relative;
   padding-top: 1rem;
   overflow: hidden;
@@ -65,10 +66,18 @@ div.search-bar {
   border-color: #0E40A9;
 }
 
-div.items-container {
+div.details-container {
   height: calc(100% - 3.5rem);
+}
+
+div.items-container {
+  height: 100%;
   overflow: scroll;
   text-align: center;
+}
+
+div.items-container .table {
+  text-align: left;
 }
 
 .table-hover thead {
